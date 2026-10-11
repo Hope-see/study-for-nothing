@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P4 English Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="english-p4.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="p4-english-dashboard" id="p4-english-dashboard">
+        <header class="p4-english-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="p4-english-title-wrap">
+                <div class="p4-english-title-icon">📚</div>
+                <div>
+                    <p class="eyebrow">Primary 4</p>
+                    <h1>English Adventure</h1>
+                    <p>Use stronger grammar, richer vocabulary, clearer writing and deeper reading skills!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="p4-english-progress-card" aria-label="P4 English progress">
+            <div class="progress-copy">
+                <span>🌟 My P4 English Progress</span>
+                <strong id="p4-english-progress-text">0%</strong>
+            </div>
+            <div class="p4-english-progress-track">
+                <div class="p4-english-progress-fill" id="p4-english-progress-fill"></div>
+            </div>
+            <p id="p4-english-progress-message">Complete a lesson to earn your first P4 English star!</p>
+        </section>
+
+        <section class="p4-english-topics">
+            <h2>Choose an English adventure</h2>
+            <p class="section-subtitle">Learn the skill, listen to examples, then complete a 5-question quiz.</p>
+
+            <div class="p4-english-card-grid">
+                <article class="p4-english-card grammar" data-topic="grammar">
+                    <div class="p4-english-card-icon">⏰</div>
+                    <div class="p4-english-card-copy">
+                        <span class="topic-label">Adventure 1</span>
+                        <h3>Grammar & Clauses</h3>
+                        <p>Use accurate tenses, subject-verb agreement, pronouns and conjunctions to build clear clauses.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-grammar">Ready</span>
+                        <button type="button" onclick="openP4EnglishLesson('grammar')">Master Grammar →</button>
+                    </div>
+                </article>
+
+                <article class="p4-english-card vocabulary" data-topic="vocabulary">
+                    <div class="p4-english-card-icon">🧠</div>
+                    <div class="p4-english-card-copy">
+                        <span class="topic-label">Adventure 2</span>
+                        <h3>Vocabulary & Word Choice</h3>
+                        <p>Use context, word parts, synonyms and precise word choices to understand richer vocabulary.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-vocabulary">Ready</span>
+                        <button type="button" onclick="openP4EnglishLesson('vocabulary')">Grow Vocabulary →</button>
+                    </div>
+                </article>
+
+                <article class="p4-english-card writing" data-topic="writing">
+                    <div class="p4-english-card-icon">✍️</div>
+                    <div class="p4-english-card-copy">
+                        <span class="topic-label">Adventure 3</span>
+                        <h3>Writing & Editing</h3>
+                        <p>Organise ideas, use connectors, punctuate dialogue and edit sentences for clarity.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-writing">Ready</span>
+                        <button type="button" onclick="openP4EnglishLesson('writing')">Improve Writing →</button>
+                    </div>
+                </article>
+
+                <article class="p4-english-card reading" data-topic="reading">
+                    <div class="p4-english-card-icon">🔎</div>
+                    <div class="p4-english-card-copy">
+                        <span class="topic-label">Adventure 4</span>
+                        <h3>Reading Comprehension</h3>
+                        <p>Find the main idea, support answers with evidence and make sensible inferences from a passage.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-reading">Ready</span>
+                        <button type="button" onclick="openP4EnglishLesson('reading')">Start Reading →</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="english-tip-card">
+            <span>💡</span>
+            <div>
+                <strong>P4 English tip</strong>
+                <p>Read the full sentence or paragraph before answering. Look for evidence, signal words and clues that support your choice.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="p4-english-lesson" id="p4-english-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-button" type="button" onclick="closeP4EnglishLesson()">← P4 English</button>
+            <div class="lesson-heading">
+                <div class="lesson-icon" id="p4-english-lesson-icon">📚</div>
+                <div>
+                    <p class="eyebrow" id="p4-english-lesson-label">Adventure</p>
+                    <h1 id="p4-english-lesson-title">Lesson</h1>
+                    <p id="p4-english-lesson-description">Let’s learn!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="p4-english-learn-stage">
+            <div class="stage-title">
+                <span>1</span>
+                <div>
+                    <h2>Learn & Listen</h2>
+                    <p>Tap a card to hear the example read aloud.</p>
+                </div>
+            </div>
+
+            <div class="fact-grid" id="p4-english-fact-grid"></div>
+
+            <div class="example-box" id="p4-english-example-box">
+                <span class="example-icon" id="p4-english-example-icon">📝</span>
+                <div>
+                    <strong id="p4-english-example-title">Try this</strong>
+                    <p id="p4-english-example-text"></p>
+                </div>
+            </div>
+
+            <button class="big-action" type="button" onclick="startP4EnglishQuiz()">Start the Quiz 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="p4-english-quiz-stage" hidden>
+            <div class="quiz-topline">
+                <div>
+                    Question <strong id="p4-english-question-number">1</strong> of <strong id="p4-english-question-total">5</strong>
+                </div>
+                <div>Score: <strong id="p4-english-live-score">0</strong></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="p4-english-quiz-progress"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-visual" id="p4-english-question-visual">📚</div>
+                <h2 id="p4-english-question-text">Question</h2>
+                <div class="answer-grid" id="p4-english-answer-grid"></div>
+                <div class="feedback" id="p4-english-feedback" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="p4-english-finish-stage" hidden>
+            <div class="finish-burst">🎉</div>
+            <p class="eyebrow">Adventure complete!</p>
+            <h2>Excellent English work!</h2>
+            <div class="score-badge" id="p4-english-final-score">0 / 5</div>
+            <p id="p4-english-finish-message">You finished the lesson!</p>
+            <div class="finish-actions">
+                <button type="button" class="secondary-action" onclick="restartP4EnglishLesson()">Try Quiz Again</button>
+                <button type="button" class="big-action" onclick="closeP4EnglishLesson()">Back to P4 English ⭐</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="english-p4.js"></script>
+</body>
+</html>

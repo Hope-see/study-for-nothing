@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2 Science Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="science-p2.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="p2-science-dashboard" id="p2-science-dashboard">
+        <header class="p2-science-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="p2-science-title-wrap">
+                <div class="p2-science-title-icon">🧪</div>
+                <div>
+                    <p class="eyebrow">Primary 2</p>
+                    <h1>Science Adventure</h1>
+                    <p>Investigate materials, living things, light, weather and water!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="p2-science-progress-card" aria-label="P2 Science progress">
+            <div class="progress-copy">
+                <span>🌟 My P2 Science Progress</span>
+                <strong id="p2-science-progress-text">0%</strong>
+            </div>
+            <div class="p2-science-progress-track">
+                <div class="p2-science-progress-fill" id="p2-science-progress-fill"></div>
+            </div>
+            <p id="p2-science-progress-message">Complete a lesson to earn your first P2 Science star!</p>
+        </section>
+
+        <section class="p2-science-topics">
+            <h2>Choose a science adventure</h2>
+            <p class="section-subtitle">Learn the idea, explore examples, then complete a 5-question quiz.</p>
+
+            <div class="p2-science-card-grid">
+                <article class="p2-science-card materials" data-topic="materials">
+                    <div class="p2-science-card-icon">🧱</div>
+                    <div class="p2-science-card-copy">
+                        <span class="topic-label">Adventure 1</span>
+                        <h3>Materials & Properties</h3>
+                        <p>Compare materials by how they look, feel and behave.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-materials">Ready</span>
+                        <button type="button" onclick="openP2ScienceLesson('materials')">Explore →</button>
+                    </div>
+                </article>
+
+                <article class="p2-science-card lifecycles" data-topic="lifecycles">
+                    <div class="p2-science-card-icon">🦋</div>
+                    <div class="p2-science-card-copy">
+                        <span class="topic-label">Adventure 2</span>
+                        <h3>Life Cycles</h3>
+                        <p>Discover how plants and animals grow and change.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-lifecycles">Ready</span>
+                        <button type="button" onclick="openP2ScienceLesson('lifecycles')">Explore →</button>
+                    </div>
+                </article>
+
+                <article class="p2-science-card light" data-topic="light">
+                    <div class="p2-science-card-icon">💡</div>
+                    <div class="p2-science-card-copy">
+                        <span class="topic-label">Adventure 3</span>
+                        <h3>Light & Shadows</h3>
+                        <p>Find out how light helps us see and how shadows form.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-light">Ready</span>
+                        <button type="button" onclick="openP2ScienceLesson('light')">Explore →</button>
+                    </div>
+                </article>
+
+                <article class="p2-science-card weather" data-topic="weather">
+                    <div class="p2-science-card-icon">🌦️</div>
+                    <div class="p2-science-card-copy">
+                        <span class="topic-label">Adventure 4</span>
+                        <h3>Weather & Water</h3>
+                        <p>Observe weather and explore how water can change.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-weather">Ready</span>
+                        <button type="button" onclick="openP2ScienceLesson('weather')">Explore →</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="science-tip-card">
+            <span>🔎</span>
+            <div>
+                <strong>Scientist tip</strong>
+                <p>Look closely, compare what you notice, and use evidence before choosing your answer.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="p2-science-lesson" id="p2-science-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-button" type="button" onclick="closeP2ScienceLesson()">← P2 Science</button>
+            <div class="lesson-heading">
+                <div class="lesson-icon" id="p2-science-lesson-icon">🧱</div>
+                <div>
+                    <p class="eyebrow" id="p2-science-lesson-label">Adventure</p>
+                    <h1 id="p2-science-lesson-title">Lesson</h1>
+                    <p id="p2-science-lesson-description">Let’s investigate!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="p2-science-learn-stage">
+            <div class="stage-title">
+                <span>1</span>
+                <div>
+                    <h2>Learn & Investigate</h2>
+                    <p>Tap a card to hear the science fact read aloud.</p>
+                </div>
+            </div>
+
+            <div class="fact-grid" id="p2-science-fact-grid"></div>
+
+            <div class="example-box" id="p2-science-example-box">
+                <span class="example-icon" id="p2-science-example-icon">🔬</span>
+                <div>
+                    <strong id="p2-science-example-title">Try this</strong>
+                    <p id="p2-science-example-text"></p>
+                </div>
+            </div>
+
+            <button class="big-action" type="button" onclick="startP2ScienceQuiz()">Start the Quiz 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="p2-science-quiz-stage" hidden>
+            <div class="quiz-topline">
+                <div>
+                    Question <strong id="p2-science-question-number">1</strong> of <strong id="p2-science-question-total">5</strong>
+                </div>
+                <div>Score: <strong id="p2-science-live-score">0</strong></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="p2-science-quiz-progress"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-visual" id="p2-science-question-visual">🧪</div>
+                <h2 id="p2-science-question-text">Question</h2>
+                <div class="answer-grid" id="p2-science-answer-grid"></div>
+                <div class="feedback" id="p2-science-feedback" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="p2-science-finish-stage" hidden>
+            <div class="finish-burst">🎉</div>
+            <p class="eyebrow">Investigation complete!</p>
+            <h2>Great science work!</h2>
+            <div class="score-badge" id="p2-science-final-score">0 / 5</div>
+            <p id="p2-science-finish-message">You finished the lesson!</p>
+            <div class="finish-actions">
+                <button type="button" class="secondary-action" onclick="restartP2ScienceLesson()">Try Quiz Again</button>
+                <button type="button" class="big-action" onclick="closeP2ScienceLesson()">Back to P2 Science ⭐</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="science-p2.js"></script>
+</body>
+</html>

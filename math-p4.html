@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P4 Math Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="math-p4.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="p4-dashboard" id="p4-dashboard">
+        <header class="p4-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="p4-title-wrap">
+                <div class="p4-title-icon">🧮</div>
+                <div>
+                    <p class="eyebrow">Primary 4</p>
+                    <h1>Math Adventure</h1>
+                    <p>Work with bigger numbers, factors, decimals, fractions and geometry!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="p4-progress-card" aria-label="P4 Math progress">
+            <div class="progress-copy">
+                <span>⭐ My P4 Math Progress</span>
+                <strong id="p4-progress-text">0%</strong>
+            </div>
+            <div class="p4-progress-track">
+                <div class="p4-progress-fill" id="p4-progress-fill"></div>
+            </div>
+            <p id="p4-progress-message">Complete a lesson to earn your first P4 Math star!</p>
+        </section>
+
+        <section class="p4-topics">
+            <h2>Choose a maths adventure</h2>
+            <p class="section-subtitle">Learn the idea, study an example, then complete a 5-question quiz.</p>
+
+            <div class="p4-card-grid">
+                <article class="p4-card whole" data-topic="whole">
+                    <div class="p4-card-icon">🔢</div>
+                    <div class="p4-card-copy">
+                        <span class="topic-label">Adventure 1</span>
+                        <h3>Whole Numbers & Rounding</h3>
+                        <p>Explore numbers to 100,000, place value, comparing and rounding.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-whole">Ready</span>
+                        <button type="button" onclick="openP4Lesson('whole')">Start →</button>
+                    </div>
+                </article>
+
+                <article class="p4-card factors" data-topic="factors">
+                    <div class="p4-card-icon">✖️</div>
+                    <div class="p4-card-copy">
+                        <span class="topic-label">Adventure 2</span>
+                        <h3>Factors, Multiples & Operations</h3>
+                        <p>Find factors and multiples, then multiply and divide larger numbers.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-factors">Ready</span>
+                        <button type="button" onclick="openP4Lesson('factors')">Start →</button>
+                    </div>
+                </article>
+
+                <article class="p4-card fractions" data-topic="fractions">
+                    <div class="p4-card-icon">🍕</div>
+                    <div class="p4-card-copy">
+                        <span class="topic-label">Adventure 3</span>
+                        <h3>Fractions & Decimals</h3>
+                        <p>Work with mixed numbers, fraction operations and decimals to 3 places.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-fractions">Ready</span>
+                        <button type="button" onclick="openP4Lesson('fractions')">Start →</button>
+                    </div>
+                </article>
+
+                <article class="p4-card geometry" data-topic="geometry">
+                    <div class="p4-card-icon">📐</div>
+                    <div class="p4-card-copy">
+                        <span class="topic-label">Adventure 4</span>
+                        <h3>Geometry, Area & Perimeter</h3>
+                        <p>Measure angles, explore symmetry and nets, and solve area and perimeter problems.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-geometry">Ready</span>
+                        <button type="button" onclick="openP4Lesson('geometry')">Start →</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="p4-tip-card">
+            <span>💡</span>
+            <div>
+                <strong>P4 Maths tip</strong>
+                <p>Show your working clearly. For harder questions, break the problem into smaller steps and check whether your answer is reasonable.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="p4-lesson" id="p4-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-button" type="button" onclick="closeP4Lesson()">← P4 Math</button>
+            <div class="lesson-heading">
+                <div class="lesson-icon" id="lesson-icon">🔢</div>
+                <div>
+                    <p class="eyebrow" id="lesson-label">Adventure</p>
+                    <h1 id="lesson-title">Lesson</h1>
+                    <p id="lesson-description">Let’s learn!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="learn-stage">
+            <div class="stage-title">
+                <span>1</span>
+                <div>
+                    <h2>Learn</h2>
+                    <p>Tap a card to hear it read aloud.</p>
+                </div>
+            </div>
+
+            <div class="fact-grid" id="fact-grid"></div>
+
+            <div class="example-box" id="example-box">
+                <span class="example-icon" id="example-icon">🧩</span>
+                <div>
+                    <strong id="example-title">Example</strong>
+                    <p id="example-text"></p>
+                </div>
+            </div>
+
+            <button class="big-action" type="button" onclick="startP4Quiz()">Start the Quiz 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="quiz-stage" hidden>
+            <div class="quiz-topline">
+                <div>
+                    Question <strong id="p4-question-number">1</strong> of <strong id="p4-question-total">5</strong>
+                </div>
+                <div>Score: <strong id="p4-live-score">0</strong></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="p4-quiz-progress"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-visual" id="p4-question-visual">🔢</div>
+                <h2 id="p4-question-text">Question</h2>
+                <div class="answer-grid" id="p4-answer-grid"></div>
+                <div class="feedback" id="p4-feedback" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="finish-stage" hidden>
+            <div class="finish-burst">🎉</div>
+            <p class="eyebrow">Adventure complete!</p>
+            <h2>Excellent P4 maths work!</h2>
+            <div class="score-badge" id="p4-final-score">0 / 5</div>
+            <p id="p4-finish-message">You finished the lesson!</p>
+            <div class="finish-actions">
+                <button type="button" class="secondary-action" onclick="restartP4Lesson()">Try Quiz Again</button>
+                <button type="button" class="big-action" onclick="closeP4Lesson()">Back to P4 Math ⭐</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="math-p4.js"></script>
+</body>
+</html>

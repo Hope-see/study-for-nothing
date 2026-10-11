@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2 English Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="english-p2.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="p2-english-dashboard" id="p2-english-dashboard">
+        <header class="p2-english-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="p2-english-title-wrap">
+                <div class="p2-english-title-icon">📚</div>
+                <div>
+                    <p class="eyebrow">Primary 2</p>
+                    <h1>English Adventure</h1>
+                    <p>Build stronger sounds, grammar, sentences and reading skills!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="p2-english-progress-card" aria-label="P2 English progress">
+            <div class="progress-copy">
+                <span>🌟 My P2 English Progress</span>
+                <strong id="p2-english-progress-text">0%</strong>
+            </div>
+            <div class="p2-english-progress-track">
+                <div class="p2-english-progress-fill" id="p2-english-progress-fill"></div>
+            </div>
+            <p id="p2-english-progress-message">Complete a lesson to earn your first P2 English star!</p>
+        </section>
+
+        <section class="p2-english-topics">
+            <h2>Choose an English adventure</h2>
+            <p class="section-subtitle">Learn the skill, listen to examples, then complete a 5-question quiz.</p>
+
+            <div class="p2-english-card-grid">
+                <article class="p2-english-card sounds" data-topic="sounds">
+                    <div class="p2-english-card-icon">🔤</div>
+                    <div class="p2-english-card-copy">
+                        <span class="topic-label">Adventure 1</span>
+                        <h3>Blends & Digraphs</h3>
+                        <p>Read sounds such as sh, ch, th, br and st.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-sounds">Ready</span>
+                        <button type="button" onclick="openP2EnglishLesson('sounds')">Learn Sounds →</button>
+                    </div>
+                </article>
+
+                <article class="p2-english-card grammar" data-topic="grammar">
+                    <div class="p2-english-card-icon">🧩</div>
+                    <div class="p2-english-card-copy">
+                        <span class="topic-label">Adventure 2</span>
+                        <h3>Nouns & Verbs</h3>
+                        <p>Tell the difference between naming words and action words.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-grammar">Ready</span>
+                        <button type="button" onclick="openP2EnglishLesson('grammar')">Explore Grammar →</button>
+                    </div>
+                </article>
+
+                <article class="p2-english-card sentences" data-topic="sentences">
+                    <div class="p2-english-card-icon">✏️</div>
+                    <div class="p2-english-card-copy">
+                        <span class="topic-label">Adventure 3</span>
+                        <h3>Better Sentences</h3>
+                        <p>Use adjectives, capitals and punctuation to improve sentences.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-sentences">Ready</span>
+                        <button type="button" onclick="openP2EnglishLesson('sentences')">Build Sentences →</button>
+                    </div>
+                </article>
+
+                <article class="p2-english-card reading" data-topic="reading">
+                    <div class="p2-english-card-icon">📖</div>
+                    <div class="p2-english-card-copy">
+                        <span class="topic-label">Adventure 4</span>
+                        <h3>Reading Comprehension</h3>
+                        <p>Read a short passage and find important details.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-reading">Ready</span>
+                        <button type="button" onclick="openP2EnglishLesson('reading')">Start Reading →</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="english-tip-card">
+            <span>💡</span>
+            <div>
+                <strong>Reader tip</strong>
+                <p>Read each sentence slowly. Look for clues in the words before choosing your answer.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="p2-english-lesson" id="p2-english-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-button" type="button" onclick="closeP2EnglishLesson()">← P2 English</button>
+            <div class="lesson-heading">
+                <div class="lesson-icon" id="p2-english-lesson-icon">🔤</div>
+                <div>
+                    <p class="eyebrow" id="p2-english-lesson-label">Adventure</p>
+                    <h1 id="p2-english-lesson-title">Lesson</h1>
+                    <p id="p2-english-lesson-description">Let’s learn!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="p2-english-learn-stage">
+            <div class="stage-title">
+                <span>1</span>
+                <div>
+                    <h2>Learn & Listen</h2>
+                    <p>Tap a card to hear the example read aloud.</p>
+                </div>
+            </div>
+
+            <div class="fact-grid" id="p2-english-fact-grid"></div>
+
+            <div class="example-box" id="p2-english-example-box">
+                <span class="example-icon" id="p2-english-example-icon">📝</span>
+                <div>
+                    <strong id="p2-english-example-title">Try this</strong>
+                    <p id="p2-english-example-text"></p>
+                </div>
+            </div>
+
+            <button class="big-action" type="button" onclick="startP2EnglishQuiz()">Start the Quiz 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="p2-english-quiz-stage" hidden>
+            <div class="quiz-topline">
+                <div>
+                    Question <strong id="p2-english-question-number">1</strong> of <strong id="p2-english-question-total">5</strong>
+                </div>
+                <div>Score: <strong id="p2-english-live-score">0</strong></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="p2-english-quiz-progress"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-visual" id="p2-english-question-visual">📚</div>
+                <h2 id="p2-english-question-text">Question</h2>
+                <div class="answer-grid" id="p2-english-answer-grid"></div>
+                <div class="feedback" id="p2-english-feedback" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="p2-english-finish-stage" hidden>
+            <div class="finish-burst">🎉</div>
+            <p class="eyebrow">Adventure complete!</p>
+            <h2>Wonderful English work!</h2>
+            <div class="score-badge" id="p2-english-final-score">0 / 5</div>
+            <p id="p2-english-finish-message">You finished the lesson!</p>
+            <div class="finish-actions">
+                <button type="button" class="secondary-action" onclick="restartP2EnglishLesson()">Try Quiz Again</button>
+                <button type="button" class="big-action" onclick="closeP2EnglishLesson()">Back to P2 English ⭐</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="english-p2.js"></script>
+</body>
+</html>

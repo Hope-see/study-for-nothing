@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Learning Adventure</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+    <!-- Background bubbles -->
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+
+    <!-- ================================
+         HOME PAGE
+    ================================= -->
+
+    <main class="home-container" id="home-page">
+
+        <!-- Welcome -->
+        <section class="welcome">
+
+            <div class="welcome-bubble">
+                ✨
+            </div>
+
+            <h1>
+                My Learning
+                <span>Adventure!</span>
+            </h1>
+
+            <p>
+                🌈 Choose a subject and your learning level!
+            </p>
+
+        </section>
+
+
+        <!-- Subjects -->
+        <section class="subjects">
+
+
+            <!-- =========================
+                 MATH
+            ========================== -->
+
+            <article class="subject-card math">
+
+                <div class="card-decoration">
+                    +
+                </div>
+
+                <div class="subject-icon">
+                    🧮
+                </div>
+
+                <h2>Math</h2>
+
+                <p>
+                    Solve puzzles, discover numbers
+                    and become a problem-solving pro!
+                </p>
+
+                <button
+                    class="start-button"
+                    onclick="showLevels('math-levels')">
+
+                    Let's Go! 🚀
+
+                </button>
+
+
+                <!-- Math Levels -->
+
+                <div class="levels" id="math-levels">
+
+                    <h3>Choose your level</h3>
+
+
+                    <div class="level-group">
+
+                        <h4>🎒 Primary</h4>
+
+                        <div class="level-buttons">
+
+                            <a href="math.html">P1</a>
+                            <a href="math-p2.html">P2</a>
+                            <a href="math-p3.html">P3</a>
+                            <a href="math-p4.html">P4</a>
+                            <a href="math-p5.html">P5</a>
+                            <a href="math-p6.html">P6</a>
+                            <a class="psle-level-link" href="psle-math.html">PSLE</a>
+
+                        </div>
+
+                    </div>
+
+                    <p class="coming-soon-note">
+                        Primary 1 to Primary 6 and PSLE Math are ready!
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =========================
+                 SCIENCE
+            ========================== -->
+
+            <article class="subject-card science">
+
+                <div class="card-decoration">
+                    ⚗
+                </div>
+
+                <div class="subject-icon">
+                    🔬
+                </div>
+
+                <h2>Science</h2>
+
+                <p>
+                    Explore space, animals, nature
+                    and amazing experiments!
+                </p>
+
+                <button
+                    class="start-button"
+                    onclick="showLevels('science-levels')">
+
+                    Explore! 🔎
+
+                </button>
+
+
+                <div class="levels" id="science-levels">
+
+                    <h3>Choose your level</h3>
+
+
+                    <div class="level-group">
+
+                        <h4>🎒 Primary</h4>
+
+                        <div class="level-buttons">
+
+                            <a href="science.html">P1</a>
+                            <a href="science-p2.html">P2</a>
+                            <a href="science-p3.html">P3</a>
+                            <a href="science-p4.html">P4</a>
+                            <a href="science-p5.html">P5</a>
+                            <a href="science-p6.html">P6</a>
+                            <a class="psle-level-link" href="psle-science.html">PSLE</a>
+
+                        </div>
+
+                    </div>
+
+                    <p class="coming-soon-note">
+                        Primary 1 to Primary 6 and PSLE Science are ready!
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =========================
+                 ENGLISH
+            ========================== -->
+
+            <article class="subject-card english">
+
+                <div class="card-decoration">
+                    Aa
+                </div>
+
+                <div class="subject-icon">
+                    📚
+                </div>
+
+                <h2>English</h2>
+
+                <p>
+                    Discover new words, stories,
+                    grammar and exciting adventures!
+                </p>
+
+                <button
+                    class="start-button"
+                    onclick="showLevels('english-levels')">
+
+                    Start! ✨
+
+                </button>
+
+
+                <div class="levels" id="english-levels">
+
+                    <h3>Choose your level</h3>
+
+
+                    <div class="level-group">
+
+                        <h4>🎒 Primary</h4>
+
+                        <div class="level-buttons">
+
+                            <a href="english.html">P1</a>
+                            <a href="english-p2.html">P2</a>
+                            <a href="english-p3.html">P3</a>
+                            <a href="english-p4.html">P4</a>
+                            <a href="english-p5.html">P5</a>
+                            <a href="english-p6.html">P6</a>
+                            <a class="psle-level-link" href="psle-english.html">PSLE</a>
+
+                        </div>
+
+                    </div>
+
+                    <p class="coming-soon-note">
+                        Primary 1 to Primary 6 and PSLE English are ready!
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <div class="bottom-message">
+
+            <span>💡</span>
+
+            Learn something new every day!
+
+            <span>🌟</span>
+
+        </div>
+
+    </main>
+
+
+    <!-- JavaScript -->
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

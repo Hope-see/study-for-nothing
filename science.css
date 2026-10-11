@@ -1,0 +1,643 @@
+/* =========================================
+   P1 SCIENCE PAGE
+========================================= */
+
+body {
+    align-items: flex-start;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.science-dashboard,
+.science-lesson {
+    width: min(1120px, calc(100% - 32px));
+    margin: 34px auto 64px;
+    position: relative;
+    z-index: 5;
+}
+
+.science-header,
+.lesson-header {
+    background: rgba(255, 255, 255, 0.94);
+    border: 3px solid rgba(255, 255, 255, 0.85);
+    border-radius: 30px;
+    box-shadow: 0 18px 40px rgba(37, 86, 72, 0.12);
+    padding: 24px 28px;
+}
+
+.back-home,
+.back-dashboard {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 999px;
+    text-decoration: none;
+    background: #eefaf3;
+    color: #237452;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.back-home:hover,
+.back-dashboard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(35, 116, 82, 0.14);
+}
+
+.science-title-wrap,
+.lesson-heading {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.science-title-icon,
+.lesson-heading-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 26px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    font-size: 48px;
+    background: linear-gradient(145deg, #d8ffe8, #e5fbff);
+    box-shadow: inset 0 0 0 3px rgba(50, 163, 111, 0.12);
+}
+
+.eyebrow {
+    margin: 0 0 4px;
+    color: #2e9768;
+    font-size: 0.92rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.science-header h1,
+.lesson-header h1 {
+    margin: 0;
+    color: #184f3e;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+    line-height: 1.05;
+}
+
+.science-header p:last-child,
+.lesson-header p:last-child {
+    margin: 8px 0 0;
+    color: #55756a;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.science-progress-card {
+    margin-top: 22px;
+    padding: 22px 24px;
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 24px;
+    box-shadow: 0 14px 34px rgba(37, 86, 72, 0.1);
+}
+
+.progress-copy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: #245b49;
+    font-weight: 900;
+}
+
+.progress-copy strong {
+    font-size: 1.3rem;
+    color: #2e9768;
+}
+
+.science-progress-track,
+.quiz-progress-track {
+    width: 100%;
+    height: 16px;
+    margin-top: 12px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e7efe9;
+}
+
+.science-progress-fill,
+.quiz-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #38b978, #66d9b4);
+    transition: width 0.45s ease;
+}
+
+.science-progress-card > p {
+    margin: 10px 0 0;
+    color: #678078;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.science-topics {
+    margin-top: 34px;
+}
+
+.science-topics > h2 {
+    margin: 0;
+    color: #174c3c;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.section-subtitle {
+    margin: 8px 0 22px;
+    text-align: center;
+    color: #627a72;
+    font-weight: 700;
+}
+
+.science-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.science-card {
+    position: relative;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 18px 18px;
+    border: 3px solid rgba(255,255,255,0.9);
+    border-radius: 26px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 14px 30px rgba(34, 78, 64, 0.11);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.science-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 34px rgba(34, 78, 64, 0.16);
+}
+
+.science-card.living { border-bottom: 8px solid #58c879; }
+.science-card.senses { border-bottom: 8px solid #5cb9e9; }
+.science-card.habitats { border-bottom: 8px solid #f0a85a; }
+.science-card.plants { border-bottom: 8px solid #9bc94c; }
+
+.science-card.completed::after {
+    content: "✓";
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #37b675;
+    color: white;
+    font-weight: 900;
+}
+
+.science-card-icon {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 14px;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+    background: #f3fbf6;
+    font-size: 42px;
+}
+
+.science-card-copy {
+    flex: 1;
+    text-align: center;
+}
+
+.topic-number {
+    display: block;
+    color: #4c8d72;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.science-card h3 {
+    margin: 7px 0 8px;
+    color: #184f3e;
+    font-size: 1.25rem;
+}
+
+.science-card p {
+    margin: 0;
+    color: #637a72;
+    line-height: 1.45;
+    font-size: 0.94rem;
+    font-weight: 650;
+}
+
+.science-card-status {
+    align-self: center;
+    margin: 16px 0 10px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: #ecf8f0;
+    color: #2d8b61;
+    font-size: 0.78rem;
+    font-weight: 900;
+}
+
+.science-card button,
+.big-action,
+.secondary-action {
+    width: 100%;
+    border: 0;
+    border-radius: 16px;
+    padding: 13px 14px;
+    font: inherit;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform 0.17s ease, filter 0.17s ease;
+}
+
+.science-card button,
+.big-action {
+    background: linear-gradient(135deg, #2eb875, #51c99a);
+    color: #fff;
+    box-shadow: 0 7px 0 #21885a;
+}
+
+.science-card button:hover,
+.big-action:hover,
+.secondary-action:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+}
+
+.science-card button:active,
+.big-action:active {
+    transform: translateY(3px);
+    box-shadow: 0 4px 0 #21885a;
+}
+
+.science-tip {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-top: 26px;
+    padding: 18px 22px;
+    border-radius: 22px;
+    background: #fffbea;
+    color: #725d28;
+    box-shadow: 0 10px 24px rgba(93, 83, 44, 0.08);
+}
+
+.science-tip > div {
+    font-size: 2rem;
+}
+
+.science-tip p {
+    margin: 0;
+    line-height: 1.45;
+}
+
+.lesson-stage {
+    margin-top: 24px;
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 15px 36px rgba(37, 86, 72, 0.12);
+}
+
+.stage-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.stage-heading > span {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: #2fb878;
+    color: white;
+    font-size: 1.35rem;
+    font-weight: 900;
+}
+
+.stage-heading h2 {
+    margin: 0;
+    color: #164d3b;
+}
+
+.stage-heading p {
+    margin: 4px 0 0;
+    color: #687d75;
+    font-weight: 700;
+}
+
+.fact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.fact-card {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 3px solid #e1f4e8;
+    border-radius: 22px;
+    background: linear-gradient(160deg, #ffffff, #f5fff9);
+    color: #234f41;
+    font: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-4px);
+    border-color: #7bd8a3;
+}
+
+.fact-icon {
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+.fact-title {
+    margin-top: 10px;
+    font-size: 1.15rem;
+    font-weight: 900;
+}
+
+.fact-text {
+    margin-top: 7px;
+    color: #61776e;
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.fact-listen {
+    margin-top: 12px;
+    color: #2e9768;
+    font-size: 0.78rem;
+    font-weight: 900;
+}
+
+.big-action {
+    max-width: 520px;
+    display: block;
+    margin: 26px auto 5px;
+    padding: 16px 18px;
+    font-size: 1.05rem;
+}
+
+.quiz-top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.quiz-label {
+    margin: 0 0 5px;
+    color: #2e9768;
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.quiz-top-row h2 {
+    margin: 0;
+    color: #174c3c;
+    font-size: clamp(1.45rem, 4vw, 2rem);
+}
+
+.quiz-score {
+    flex: 0 0 auto;
+    padding: 10px 14px;
+    border-radius: 16px;
+    background: #fff7cf;
+    color: #886b12;
+    font-weight: 900;
+}
+
+.quiz-progress-track {
+    height: 12px;
+    margin-top: 20px;
+}
+
+.question-visual {
+    min-height: 150px;
+    display: grid;
+    place-items: center;
+    margin: 22px 0;
+    padding: 18px;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #f0fff6, #eefaff);
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    letter-spacing: 0.08em;
+    text-align: center;
+}
+
+.science-answer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.science-answer {
+    min-height: 74px;
+    padding: 14px;
+    border: 3px solid #dfeee5;
+    border-radius: 18px;
+    background: #fff;
+    color: #285646;
+    font: inherit;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+
+.science-answer:hover:not(:disabled) {
+    transform: translateY(-3px);
+    border-color: #75d39d;
+    background: #f4fff8;
+}
+
+.science-answer.correct {
+    border-color: #32b76f;
+    background: #dcf8e7;
+    color: #17653e;
+}
+
+.science-answer.wrong {
+    border-color: #ef7777;
+    background: #fff0f0;
+    color: #9c3232;
+}
+
+.science-answer:disabled {
+    cursor: default;
+}
+
+.science-feedback {
+    min-height: 54px;
+    display: grid;
+    place-items: center;
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 16px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.science-feedback.good {
+    background: #e0f9e9;
+    color: #1f7c4d;
+}
+
+.science-feedback.try-again {
+    background: #fff7dc;
+    color: #7c611e;
+}
+
+.finish-stage {
+    text-align: center;
+}
+
+.finish-stars {
+    font-size: 3rem;
+    letter-spacing: 0.12em;
+}
+
+.finish-stage h2 {
+    margin: 10px 0 8px;
+    color: #174c3c;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.finish-stage > p {
+    margin: 0 auto;
+    max-width: 600px;
+    color: #687d75;
+    font-weight: 700;
+}
+
+.finish-score {
+    width: min(300px, 100%);
+    margin: 22px auto;
+    padding: 18px;
+    border-radius: 20px;
+    background: #f0fbf4;
+}
+
+.finish-score span {
+    display: block;
+    color: #668076;
+    font-weight: 800;
+}
+
+.finish-score strong {
+    display: block;
+    margin-top: 4px;
+    color: #238a5c;
+    font-size: 2rem;
+}
+
+.finish-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.finish-actions .big-action,
+.finish-actions .secondary-action {
+    width: min(360px, 100%);
+    margin: 0;
+}
+
+.secondary-action {
+    background: #edf6f1;
+    color: #28664f;
+    box-shadow: none;
+}
+
+@media (max-width: 900px) {
+    .science-card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .science-dashboard,
+    .science-lesson {
+        width: min(100% - 20px, 1120px);
+        margin-top: 14px;
+    }
+
+    .science-header,
+    .lesson-header,
+    .lesson-stage {
+        padding: 18px;
+        border-radius: 22px;
+    }
+
+    .science-title-wrap,
+    .lesson-heading {
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .science-title-icon,
+    .lesson-heading-icon {
+        width: 66px;
+        height: 66px;
+        border-radius: 18px;
+        font-size: 34px;
+    }
+
+    .science-card-grid,
+    .fact-grid,
+    .science-answer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .science-card {
+        min-height: 0;
+    }
+
+    .fact-card {
+        min-height: 160px;
+    }
+
+    .quiz-top-row {
+        flex-direction: column;
+    }
+
+    .question-visual {
+        min-height: 120px;
+    }
+}

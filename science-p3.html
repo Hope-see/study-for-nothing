@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3 Science Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="science-p3.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="p3-science-dashboard" id="p3-science-dashboard">
+        <header class="p3-science-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="p3-science-title-wrap">
+                <div class="p3-science-title-icon">🧪</div>
+                <div>
+                    <p class="eyebrow">Primary 2</p>
+                    <h1>Science Adventure</h1>
+                    <p>Classify living things, explore materials, compare life cycles and investigate magnets!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="p3-science-progress-card" aria-label="P3 Science progress">
+            <div class="progress-copy">
+                <span>🌟 My P3 Science Progress</span>
+                <strong id="p3-science-progress-text">0%</strong>
+            </div>
+            <div class="p3-science-progress-track">
+                <div class="p3-science-progress-fill" id="p3-science-progress-fill"></div>
+            </div>
+            <p id="p3-science-progress-message">Complete a lesson to earn your first P3 Science star!</p>
+        </section>
+
+        <section class="p3-science-topics">
+            <h2>Choose a science adventure</h2>
+            <p class="section-subtitle">Learn the idea, explore examples, then complete a 5-question quiz.</p>
+
+            <div class="p3-science-card-grid">
+                <article class="p3-science-card diversity" data-topic="diversity">
+                    <div class="p3-science-card-icon">🌿</div>
+                    <div class="p3-science-card-copy"><span class="topic-label">Adventure 1</span><h3>Diversity & Classification</h3><p>Sort living and non-living things using observable characteristics.</p></div>
+                    <div class="card-bottom"><span class="status-pill" id="status-diversity">Ready</span><button type="button" onclick="openP3ScienceLesson('diversity')">Explore →</button></div>
+                </article>
+                <article class="p3-science-card materials" data-topic="materials">
+                    <div class="p3-science-card-icon">🧱</div>
+                    <div class="p3-science-card-copy"><span class="topic-label">Adventure 2</span><h3>Materials & Uses</h3><p>Compare properties and choose suitable materials for different purposes.</p></div>
+                    <div class="card-bottom"><span class="status-pill" id="status-materials">Ready</span><button type="button" onclick="openP3ScienceLesson('materials')">Explore →</button></div>
+                </article>
+                <article class="p3-science-card lifecycles" data-topic="lifecycles">
+                    <div class="p3-science-card-icon">🦋</div>
+                    <div class="p3-science-card-copy"><span class="topic-label">Adventure 3</span><h3>Life Cycles</h3><p>Compare the stages in the life cycles of plants and animals.</p></div>
+                    <div class="card-bottom"><span class="status-pill" id="status-lifecycles">Ready</span><button type="button" onclick="openP3ScienceLesson('lifecycles')">Explore →</button></div>
+                </article>
+                <article class="p3-science-card magnets" data-topic="magnets">
+                    <div class="p3-science-card-icon">🧲</div>
+                    <div class="p3-science-card-copy"><span class="topic-label">Adventure 4</span><h3>Magnets & Forces</h3><p>Investigate magnetic materials, poles, attraction and repulsion.</p></div>
+                    <div class="card-bottom"><span class="status-pill" id="status-magnets">Ready</span><button type="button" onclick="openP3ScienceLesson('magnets')">Explore →</button></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="science-tip-card">
+            <span>🔎</span>
+            <div>
+                <strong>Scientist tip</strong>
+                <p>Observe carefully, classify using evidence, and explain why your answer makes sense.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="p3-science-lesson" id="p3-science-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-button" type="button" onclick="closeP3ScienceLesson()">← P3 Science</button>
+            <div class="lesson-heading">
+                <div class="lesson-icon" id="p3-science-lesson-icon">🧱</div>
+                <div>
+                    <p class="eyebrow" id="p3-science-lesson-label">Adventure</p>
+                    <h1 id="p3-science-lesson-title">Lesson</h1>
+                    <p id="p3-science-lesson-description">Let’s investigate!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="p3-science-learn-stage">
+            <div class="stage-title">
+                <span>1</span>
+                <div>
+                    <h2>Learn & Investigate</h2>
+                    <p>Tap a card to hear the science fact read aloud.</p>
+                </div>
+            </div>
+
+            <div class="fact-grid" id="p3-science-fact-grid"></div>
+
+            <div class="example-box" id="p3-science-example-box">
+                <span class="example-icon" id="p3-science-example-icon">🔬</span>
+                <div>
+                    <strong id="p3-science-example-title">Try this</strong>
+                    <p id="p3-science-example-text"></p>
+                </div>
+            </div>
+
+            <button class="big-action" type="button" onclick="startP3ScienceQuiz()">Start the Quiz 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="p3-science-quiz-stage" hidden>
+            <div class="quiz-topline">
+                <div>
+                    Question <strong id="p3-science-question-number">1</strong> of <strong id="p3-science-question-total">5</strong>
+                </div>
+                <div>Score: <strong id="p3-science-live-score">0</strong></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="p3-science-quiz-progress"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-visual" id="p3-science-question-visual">🧪</div>
+                <h2 id="p3-science-question-text">Question</h2>
+                <div class="answer-grid" id="p3-science-answer-grid"></div>
+                <div class="feedback" id="p3-science-feedback" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="p3-science-finish-stage" hidden>
+            <div class="finish-burst">🎉</div>
+            <p class="eyebrow">Investigation complete!</p>
+            <h2>Great science work!</h2>
+            <div class="score-badge" id="p3-science-final-score">0 / 5</div>
+            <p id="p3-science-finish-message">You finished the lesson!</p>
+            <div class="finish-actions">
+                <button type="button" class="secondary-action" onclick="restartP3ScienceLesson()">Try Quiz Again</button>
+                <button type="button" class="big-action" onclick="closeP3ScienceLesson()">Back to P3 Science ⭐</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="science-p3.js"></script>
+</body>
+</html>

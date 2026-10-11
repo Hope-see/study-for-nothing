@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P1 Science Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="science.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="science-dashboard" id="science-dashboard">
+        <header class="science-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="science-title-wrap">
+                <div class="science-title-icon">🔬</div>
+                <div>
+                    <p class="eyebrow">Primary 1</p>
+                    <h1>Science Adventure</h1>
+                    <p>Observe, explore and discover the world around you!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="science-progress-card" aria-label="Science progress">
+            <div class="progress-copy">
+                <span>🌟 My Science Progress</span>
+                <strong id="science-progress-text">0%</strong>
+            </div>
+            <div class="science-progress-track">
+                <div class="science-progress-fill" id="science-progress-fill"></div>
+            </div>
+            <p id="science-progress-message">Complete a lesson to earn your first science star!</p>
+        </section>
+
+        <section class="science-topics">
+            <h2>Choose an adventure</h2>
+            <p class="section-subtitle">Learn a little, then test what you discovered.</p>
+
+            <div class="science-card-grid">
+                <article class="science-card living" data-topic="living">
+                    <div class="science-card-icon">🌱</div>
+                    <div class="science-card-copy">
+                        <span class="topic-number">Adventure 1</span>
+                        <h3>Living Things</h3>
+                        <p>Find out what makes plants and animals alive.</p>
+                    </div>
+                    <div class="science-card-status" id="status-living">Ready</div>
+                    <button onclick="openScienceLesson('living')">Explore 🌿</button>
+                </article>
+
+                <article class="science-card senses" data-topic="senses">
+                    <div class="science-card-icon">👀</div>
+                    <div class="science-card-copy">
+                        <span class="topic-number">Adventure 2</span>
+                        <h3>Five Senses</h3>
+                        <p>See, hear, smell, taste and touch to investigate.</p>
+                    </div>
+                    <div class="science-card-status" id="status-senses">Ready</div>
+                    <button onclick="openScienceLesson('senses')">Explore 👂</button>
+                </article>
+
+                <article class="science-card habitats" data-topic="habitats">
+                    <div class="science-card-icon">🐾</div>
+                    <div class="science-card-copy">
+                        <span class="topic-number">Adventure 3</span>
+                        <h3>Animals & Habitats</h3>
+                        <p>Discover where animals live and what they need.</p>
+                    </div>
+                    <div class="science-card-status" id="status-habitats">Ready</div>
+                    <button onclick="openScienceLesson('habitats')">Explore 🐠</button>
+                </article>
+
+                <article class="science-card plants" data-topic="plants">
+                    <div class="science-card-icon">🌻</div>
+                    <div class="science-card-copy">
+                        <span class="topic-number">Adventure 4</span>
+                        <h3>Plants</h3>
+                        <p>Meet roots, stems, leaves, flowers and seeds.</p>
+                    </div>
+                    <div class="science-card-status" id="status-plants">Ready</div>
+                    <button onclick="openScienceLesson('plants')">Explore 🌼</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="science-tip">
+            <div>💡</div>
+            <p><strong>Little Scientist Tip:</strong> Look closely, ask questions and tell someone what you notice!</p>
+        </section>
+    </main>
+
+    <main class="science-lesson" id="science-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-dashboard" onclick="closeScienceLesson()">← Science</button>
+            <div class="lesson-heading">
+                <div class="lesson-heading-icon" id="lesson-icon">🌱</div>
+                <div>
+                    <p class="eyebrow" id="lesson-label">Adventure 1</p>
+                    <h1 id="lesson-title">Living Things</h1>
+                    <p id="lesson-description"></p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="learn-stage">
+            <div class="stage-heading">
+                <span>1</span>
+                <div>
+                    <h2>Learn & Discover</h2>
+                    <p>Tap each card and read the science clue.</p>
+                </div>
+            </div>
+            <div class="fact-grid" id="fact-grid"></div>
+            <button class="big-action" id="start-science-quiz" onclick="startScienceQuiz()">I'm ready for the quiz! 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="quiz-stage" hidden>
+            <div class="quiz-top-row">
+                <div>
+                    <p class="quiz-label">Question <span id="science-question-number">1</span> of <span id="science-question-total">5</span></p>
+                    <h2 id="science-question-text">Question</h2>
+                </div>
+                <div class="quiz-score">⭐ <span id="science-live-score">0</span></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="science-quiz-progress"></div>
+            </div>
+
+            <div class="question-visual" id="science-question-visual" aria-hidden="true">🌱</div>
+            <div class="science-answer-grid" id="science-answer-grid"></div>
+            <div class="science-feedback" id="science-feedback" aria-live="polite"></div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="finish-stage" hidden>
+            <div class="finish-stars">🌟 ⭐ 🌟</div>
+            <h2>Great exploring!</h2>
+            <p id="science-finish-message">You finished the science adventure.</p>
+            <div class="finish-score">
+                <span>Your score</span>
+                <strong id="science-final-score">5 / 5</strong>
+            </div>
+            <div class="finish-actions">
+                <button class="big-action" onclick="closeScienceLesson()">Choose another adventure 🧭</button>
+                <button class="secondary-action" onclick="restartScienceLesson()">Try this quiz again 🔁</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="science.js"></script>
+</body>
+</html>

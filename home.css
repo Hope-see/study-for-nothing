@@ -1,0 +1,656 @@
+/* ========================================
+   HOME PAGE STYLE SHEET
+   Only used by index.html - the subject
+   picker / landing page.
+
+   Loaded together with style.css, which
+   holds the shared reset, background and
+   animations.
+======================================== */
+
+
+/* ========================================
+   MAIN CONTAINER
+======================================== */
+
+.home-container {
+    width: 100%;
+
+    max-width: 1200px;
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* ========================================
+   WELCOME
+======================================== */
+
+.welcome {
+    margin-bottom: 45px;
+
+    animation: appear 0.8s ease;
+}
+
+
+.welcome-bubble {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 38px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd166,
+            #ff9f1c
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(255, 159, 28, 0.3);
+
+    animation:
+        bounce 2.5s infinite;
+}
+
+
+.welcome h1 {
+    font-size: clamp(42px, 6vw, 70px);
+
+    line-height: 1.05;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 18px;
+
+    color: #5a3fc0;
+
+    text-shadow:
+        0 5px 0
+        rgba(90, 63, 192, 0.1);
+}
+
+
+.welcome h1 span {
+    display: inline-block;
+
+    color: #ff4f9a;
+
+    transform: rotate(-2deg);
+
+    text-shadow:
+        0 5px 0
+        rgba(255, 79, 154, 0.12);
+}
+
+
+.welcome p {
+    font-size: 21px;
+
+    font-weight: 600;
+
+    color: #67647b;
+}
+
+
+/* ========================================
+   SUBJECTS
+======================================== */
+
+.subjects {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ========================================
+   SUBJECT CARD
+======================================== */
+
+.subject-card {
+    width: 310px;
+
+    min-height: 390px;
+
+    padding: 38px 30px 32px;
+
+    border-radius: 42px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    border: 5px solid white;
+
+    box-shadow:
+        0 20px 45px
+        rgba(80, 70, 130, 0.16);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.subject-card:hover {
+    transform:
+        translateY(-15px)
+        rotate(1deg)
+        scale(1.02);
+
+    box-shadow:
+        0 30px 55px
+        rgba(80, 70, 130, 0.25);
+}
+
+
+/* ========================================
+   CARD COLOURS
+======================================== */
+
+.math {
+    background:
+        linear-gradient(
+            145deg,
+            #fff2a8,
+            #ffd36e
+        );
+}
+
+
+.science {
+    background:
+        linear-gradient(
+            145deg,
+            #c9f7c5,
+            #7fe3b2
+        );
+}
+
+
+.english {
+    background:
+        linear-gradient(
+            145deg,
+            #ffc9df,
+            #ff91bd
+        );
+}
+
+
+/* ========================================
+   CARD DECORATION
+======================================== */
+
+.card-decoration {
+    position: absolute;
+
+    top: -10px;
+
+    right: 18px;
+
+    font-size: 65px;
+
+    font-weight: 900;
+
+    opacity: 0.12;
+
+    transform: rotate(15deg);
+}
+
+
+/* ========================================
+   SUBJECT ICON
+======================================== */
+
+.subject-icon {
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 52px;
+
+    margin-bottom: 20px;
+
+    background: white;
+
+    box-shadow:
+        0 12px 25px
+        rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.subject-card:hover .subject-icon {
+    transform:
+        scale(1.15)
+        rotate(-8deg);
+}
+
+
+/* ========================================
+   TITLES
+======================================== */
+
+.subject-card h2 {
+    font-size: 34px;
+
+    font-weight: 900;
+
+    margin-bottom: 13px;
+
+    color: #30274f;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.subject-card p {
+    max-width: 240px;
+
+    min-height: 72px;
+
+    font-size: 16px;
+
+    line-height: 1.55;
+
+    font-weight: 600;
+
+    color: #59556b;
+
+    margin-bottom: 25px;
+}
+
+
+/* ========================================
+   MAIN BUTTON
+======================================== */
+
+.start-button {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 999px;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 0
+        rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.math .start-button {
+    background:
+        linear-gradient(
+            135deg,
+            #ff9f1c,
+            #ff7b00
+        );
+}
+
+
+.science .start-button {
+    background:
+        linear-gradient(
+            135deg,
+            #19a974,
+            #087f5b
+        );
+}
+
+
+.english .start-button {
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f9a,
+            #e52e76
+        );
+}
+
+
+.start-button:hover {
+    transform:
+        translateY(-4px)
+        scale(1.06);
+
+    box-shadow:
+        0 12px 0
+        rgba(0, 0, 0, 0.12);
+}
+
+
+.start-button:active {
+    transform:
+        translateY(3px)
+        scale(0.98);
+
+    box-shadow:
+        0 4px 0
+        rgba(0, 0, 0, 0.12);
+}
+
+
+/* ========================================
+   LEVEL SELECTION
+======================================== */
+
+.levels {
+    display: none;
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top:
+        2px dashed
+        rgba(50, 40, 80, 0.2);
+
+    animation:
+        levelsAppear 0.4s ease;
+}
+
+
+.levels.show {
+    display: block;
+}
+
+
+.levels h3 {
+    font-size: 18px;
+
+    margin-bottom: 18px;
+
+    color: #40375c;
+}
+
+
+.level-group {
+    margin-bottom: 18px;
+}
+
+
+.level-group h4 {
+    font-size: 15px;
+
+    margin-bottom: 10px;
+
+    color: #514967;
+}
+
+
+/* ========================================
+   LEVEL BUTTONS
+======================================== */
+
+.level-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+
+.level-buttons button,
+.level-buttons a {
+    width: 42px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: white;
+
+    color: #514967;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    font-family: inherit;
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 8px
+        rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.level-buttons button:hover,
+.level-buttons a:hover {
+    transform:
+        translateY(-3px)
+        scale(1.05);
+
+    background: #6c4cff;
+
+    color: white;
+}
+
+
+.level-buttons button:active {
+    transform: scale(0.92);
+}
+
+
+/* Levels that don't have a lesson built yet.
+   Shown clearly greyed-out instead of looking
+   clickable and silently doing nothing. */
+
+.level-buttons button:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.45;
+
+    background: white;
+
+    color: #514967;
+}
+
+.level-buttons button:disabled:hover {
+    transform: none;
+
+    background: white;
+
+    color: #514967;
+}
+
+
+/* PSLE sits with the Primary topic buttons but is highlighted as revision. */
+.level-buttons a.psle-level-link {
+    width: 64px;
+    background: linear-gradient(135deg, #6c4cff, #9b63db);
+    color: white;
+    box-shadow: 0 6px 12px rgba(108, 76, 255, 0.22);
+}
+
+.level-buttons a.psle-level-link:hover {
+    background: linear-gradient(135deg, #5b3de8, #854fc8);
+    color: white;
+}
+
+
+.coming-soon-note {
+    margin-top: 14px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #857f9c;
+}
+
+
+/* ========================================
+   BOTTOM MESSAGE
+======================================== */
+
+.bottom-message {
+    margin-top: 38px;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #716d83;
+}
+
+
+.bottom-message span {
+    display: inline-block;
+
+    margin: 0 8px;
+
+    animation:
+        bounce 2s infinite;
+}
+
+
+.bottom-message span:last-child {
+    animation-delay: 0.4s;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .home-container {
+        padding-top: 40px;
+    }
+
+    .subjects {
+        gap: 20px;
+    }
+
+    .subject-card {
+        width: 290px;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        align-items: flex-start;
+    }
+
+    .home-container {
+        padding:
+            40px 20px
+            50px;
+    }
+
+    .welcome {
+        margin-bottom: 35px;
+    }
+
+    .welcome h1 {
+        font-size: 43px;
+    }
+
+    .welcome p {
+        font-size: 17px;
+    }
+
+    .subjects {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 22px;
+    }
+
+    .subject-card {
+        width: 100%;
+
+        max-width: 360px;
+
+        min-height: 350px;
+    }
+}

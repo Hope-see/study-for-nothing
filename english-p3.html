@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3 English Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="english-p3.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="p3-english-dashboard" id="p3-english-dashboard">
+        <header class="p3-english-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="p3-english-title-wrap">
+                <div class="p3-english-title-icon">📚</div>
+                <div>
+                    <p class="eyebrow">Primary 3</p>
+                    <h1>English Adventure</h1>
+                    <p>Strengthen grammar, vocabulary, writing and reading comprehension!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="p3-english-progress-card" aria-label="P3 English progress">
+            <div class="progress-copy">
+                <span>🌟 My P3 English Progress</span>
+                <strong id="p3-english-progress-text">0%</strong>
+            </div>
+            <div class="p3-english-progress-track">
+                <div class="p3-english-progress-fill" id="p3-english-progress-fill"></div>
+            </div>
+            <p id="p3-english-progress-message">Complete a lesson to earn your first P3 English star!</p>
+        </section>
+
+        <section class="p3-english-topics">
+            <h2>Choose an English adventure</h2>
+            <p class="section-subtitle">Learn the skill, listen to examples, then complete a 5-question quiz.</p>
+
+            <div class="p3-english-card-grid">
+                <article class="p3-english-card grammar" data-topic="grammar">
+                    <div class="p3-english-card-icon">⏰</div>
+                    <div class="p3-english-card-copy">
+                        <span class="topic-label">Adventure 1</span>
+                        <h3>Grammar & Tenses</h3>
+                        <p>Use present and past tense, pronouns and correct subject-verb agreement.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-grammar">Ready</span>
+                        <button type="button" onclick="openP3EnglishLesson('grammar')">Explore Grammar →</button>
+                    </div>
+                </article>
+
+                <article class="p3-english-card vocabulary" data-topic="vocabulary">
+                    <div class="p3-english-card-icon">🧠</div>
+                    <div class="p3-english-card-copy">
+                        <span class="topic-label">Adventure 2</span>
+                        <h3>Vocabulary & Word Power</h3>
+                        <p>Use synonyms, antonyms, prefixes and context clues to understand words.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-vocabulary">Ready</span>
+                        <button type="button" onclick="openP3EnglishLesson('vocabulary')">Build Word Power →</button>
+                    </div>
+                </article>
+
+                <article class="p3-english-card writing" data-topic="writing">
+                    <div class="p3-english-card-icon">✍️</div>
+                    <div class="p3-english-card-copy">
+                        <span class="topic-label">Adventure 3</span>
+                        <h3>Sentences & Connectors</h3>
+                        <p>Join ideas using because, but and so, then build clearer sentences.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-writing">Ready</span>
+                        <button type="button" onclick="openP3EnglishLesson('writing')">Build Sentences →</button>
+                    </div>
+                </article>
+
+                <article class="p3-english-card reading" data-topic="reading">
+                    <div class="p3-english-card-icon">🔎</div>
+                    <div class="p3-english-card-copy">
+                        <span class="topic-label">Adventure 4</span>
+                        <h3>Reading Comprehension</h3>
+                        <p>Find details, use context clues and make simple inferences from a passage.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-reading">Ready</span>
+                        <button type="button" onclick="openP3EnglishLesson('reading')">Start Reading →</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="english-tip-card">
+            <span>💡</span>
+            <div>
+                <strong>P3 English tip</strong>
+                <p>Do not rush. Read the whole sentence or passage first, then use the surrounding words as clues.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="p3-english-lesson" id="p3-english-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-button" type="button" onclick="closeP3EnglishLesson()">← P3 English</button>
+            <div class="lesson-heading">
+                <div class="lesson-icon" id="p3-english-lesson-icon">📚</div>
+                <div>
+                    <p class="eyebrow" id="p3-english-lesson-label">Adventure</p>
+                    <h1 id="p3-english-lesson-title">Lesson</h1>
+                    <p id="p3-english-lesson-description">Let’s learn!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="p3-english-learn-stage">
+            <div class="stage-title">
+                <span>1</span>
+                <div>
+                    <h2>Learn & Listen</h2>
+                    <p>Tap a card to hear the example read aloud.</p>
+                </div>
+            </div>
+
+            <div class="fact-grid" id="p3-english-fact-grid"></div>
+
+            <div class="example-box" id="p3-english-example-box">
+                <span class="example-icon" id="p3-english-example-icon">📝</span>
+                <div>
+                    <strong id="p3-english-example-title">Try this</strong>
+                    <p id="p3-english-example-text"></p>
+                </div>
+            </div>
+
+            <button class="big-action" type="button" onclick="startP3EnglishQuiz()">Start the Quiz 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="p3-english-quiz-stage" hidden>
+            <div class="quiz-topline">
+                <div>
+                    Question <strong id="p3-english-question-number">1</strong> of <strong id="p3-english-question-total">5</strong>
+                </div>
+                <div>Score: <strong id="p3-english-live-score">0</strong></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="p3-english-quiz-progress"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-visual" id="p3-english-question-visual">📚</div>
+                <h2 id="p3-english-question-text">Question</h2>
+                <div class="answer-grid" id="p3-english-answer-grid"></div>
+                <div class="feedback" id="p3-english-feedback" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="p3-english-finish-stage" hidden>
+            <div class="finish-burst">🎉</div>
+            <p class="eyebrow">Adventure complete!</p>
+            <h2>Excellent English work!</h2>
+            <div class="score-badge" id="p3-english-final-score">0 / 5</div>
+            <p id="p3-english-finish-message">You finished the lesson!</p>
+            <div class="finish-actions">
+                <button type="button" class="secondary-action" onclick="restartP3EnglishLesson()">Try Quiz Again</button>
+                <button type="button" class="big-action" onclick="closeP3EnglishLesson()">Back to P3 English ⭐</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="english-p3.js"></script>
+</body>
+</html>

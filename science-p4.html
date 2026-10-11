@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P4 Science Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="science-p4.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="p4-science-dashboard" id="p4-science-dashboard">
+        <header class="p4-science-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="p4-science-title-wrap">
+                <div class="p4-science-title-icon">🔬</div>
+                <div>
+                    <p class="eyebrow">Primary 4</p>
+                    <h1>Science Adventure</h1>
+                    <p>Explore matter, body and plant systems, light, shadows, heat and temperature!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="p4-science-progress-card" aria-label="P4 Science progress">
+            <div class="progress-copy">
+                <span>🌟 My P4 Science Progress</span>
+                <strong id="p4-science-progress-text">0%</strong>
+            </div>
+            <div class="p4-science-progress-track">
+                <div class="p4-science-progress-fill" id="p4-science-progress-fill"></div>
+            </div>
+            <p id="p4-science-progress-message">Complete a lesson to earn your first P4 Science star!</p>
+        </section>
+
+        <section class="p4-science-topics">
+            <h2>Choose a science adventure</h2>
+            <p class="section-subtitle">Learn the idea, investigate examples, then complete a 5-question quiz.</p>
+
+            <div class="p4-science-card-grid">
+                <article class="p4-science-card matter" data-topic="matter">
+                    <div class="p4-science-card-icon">🧊</div>
+                    <div class="p4-science-card-copy">
+                        <span class="topic-label">Adventure 1</span>
+                        <h3>Matter & Its States</h3>
+                        <p>Compare solids, liquids and gases, and learn about mass and volume.</p>
+                    </div>
+                    <div class="card-bottom"><span class="status-pill" id="status-matter">Ready</span><button type="button" onclick="openP4ScienceLesson('matter')">Explore →</button></div>
+                </article>
+
+                <article class="p4-science-card systems" data-topic="systems">
+                    <div class="p4-science-card-icon">🌱</div>
+                    <div class="p4-science-card-copy">
+                        <span class="topic-label">Adventure 2</span>
+                        <h3>Plant & Human Systems</h3>
+                        <p>Learn how plant parts and digestive organs work together to perform functions.</p>
+                    </div>
+                    <div class="card-bottom"><span class="status-pill" id="status-systems">Ready</span><button type="button" onclick="openP4ScienceLesson('systems')">Explore →</button></div>
+                </article>
+
+                <article class="p4-science-card light" data-topic="light">
+                    <div class="p4-science-card-icon">💡</div>
+                    <div class="p4-science-card-copy">
+                        <span class="topic-label">Adventure 3</span>
+                        <h3>Light & Shadows</h3>
+                        <p>Discover light sources, reflected light, straight-line travel and shadows.</p>
+                    </div>
+                    <div class="card-bottom"><span class="status-pill" id="status-light">Ready</span><button type="button" onclick="openP4ScienceLesson('light')">Explore →</button></div>
+                </article>
+
+                <article class="p4-science-card heat" data-topic="heat">
+                    <div class="p4-science-card-icon">🌡️</div>
+                    <div class="p4-science-card-copy">
+                        <span class="topic-label">Adventure 4</span>
+                        <h3>Heat & Temperature</h3>
+                        <p>Investigate heat flow, temperature, conductors and effects of gaining or losing heat.</p>
+                    </div>
+                    <div class="card-bottom"><span class="status-pill" id="status-heat">Ready</span><button type="button" onclick="openP4ScienceLesson('heat')">Explore →</button></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="science-tip-card">
+            <span>🔎</span>
+            <div>
+                <strong>Scientist tip</strong>
+                <p>Use observations as evidence. When comparing two things, compare the same property.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="p4-science-lesson" id="p4-science-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-button" type="button" onclick="closeP4ScienceLesson()">← P4 Science</button>
+            <div class="lesson-heading">
+                <div class="lesson-icon" id="p4-science-lesson-icon">🔬</div>
+                <div>
+                    <p class="eyebrow" id="p4-science-lesson-label">Adventure</p>
+                    <h1 id="p4-science-lesson-title">Lesson</h1>
+                    <p id="p4-science-lesson-description">Let’s investigate!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="p4-science-learn-stage">
+            <div class="stage-title">
+                <span>1</span>
+                <div>
+                    <h2>Learn & Investigate</h2>
+                    <p>Tap a card to hear the science fact read aloud.</p>
+                </div>
+            </div>
+
+            <div class="fact-grid" id="p4-science-fact-grid"></div>
+
+            <div class="example-box" id="p4-science-example-box">
+                <span class="example-icon" id="p4-science-example-icon">🔬</span>
+                <div>
+                    <strong id="p4-science-example-title">Try this</strong>
+                    <p id="p4-science-example-text"></p>
+                </div>
+            </div>
+
+            <button class="big-action" type="button" onclick="startP4ScienceQuiz()">Start the Quiz 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="p4-science-quiz-stage" hidden>
+            <div class="quiz-topline">
+                <div>Question <strong id="p4-science-question-number">1</strong> of <strong id="p4-science-question-total">5</strong></div>
+                <div>Score: <strong id="p4-science-live-score">0</strong></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="p4-science-quiz-progress"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-visual" id="p4-science-question-visual">🧪</div>
+                <h2 id="p4-science-question-text">Question</h2>
+                <div class="answer-grid" id="p4-science-answer-grid"></div>
+                <div class="feedback" id="p4-science-feedback" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="p4-science-finish-stage" hidden>
+            <div class="finish-burst">🎉</div>
+            <p class="eyebrow">Investigation complete!</p>
+            <h2>Great science work!</h2>
+            <div class="score-badge" id="p4-science-final-score">0 / 5</div>
+            <p id="p4-science-finish-message">You finished the lesson!</p>
+            <div class="finish-actions">
+                <button type="button" class="secondary-action" onclick="restartP4ScienceLesson()">Try Quiz Again</button>
+                <button type="button" class="big-action" onclick="closeP4ScienceLesson()">Back to P4 Science ⭐</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="science-p4.js"></script>
+</body>
+</html>

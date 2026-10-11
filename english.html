@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P1 English Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="english.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="english-dashboard" id="english-dashboard">
+        <header class="english-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="english-title-wrap">
+                <div class="english-title-icon">📚</div>
+                <div>
+                    <p class="eyebrow">Primary 1</p>
+                    <h1>English Adventure</h1>
+                    <p>Listen, read, build words and become a confident reader!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="english-progress-card" aria-label="English progress">
+            <div class="progress-copy">
+                <span>🌟 My English Progress</span>
+                <strong id="english-progress-text">0%</strong>
+            </div>
+            <div class="english-progress-track">
+                <div class="english-progress-fill" id="english-progress-fill"></div>
+            </div>
+            <p id="english-progress-message">Complete a lesson to earn your first English star!</p>
+        </section>
+
+        <section class="english-topics">
+            <h2>Choose an adventure</h2>
+            <p class="section-subtitle">Learn first, then try a short quiz.</p>
+
+            <div class="english-card-grid">
+                <article class="english-card phonics" data-topic="phonics">
+                    <div class="english-card-icon">🔤</div>
+                    <div class="english-card-copy">
+                        <span class="topic-number">Adventure 1</span>
+                        <h3>Alphabet & Phonics</h3>
+                        <p>Match letters with their beginning sounds.</p>
+                    </div>
+                    <div class="english-card-status" id="status-phonics">Ready</div>
+                    <button onclick="openEnglishLesson('phonics')">Learn Sounds 🔊</button>
+                </article>
+
+                <article class="english-card vocabulary" data-topic="vocabulary">
+                    <div class="english-card-icon">🧠</div>
+                    <div class="english-card-copy">
+                        <span class="topic-number">Adventure 2</span>
+                        <h3>Words & Vocabulary</h3>
+                        <p>Learn useful words for people, places and things.</p>
+                    </div>
+                    <div class="english-card-status" id="status-vocabulary">Ready</div>
+                    <button onclick="openEnglishLesson('vocabulary')">Learn Words ✨</button>
+                </article>
+
+                <article class="english-card sentences" data-topic="sentences">
+                    <div class="english-card-icon">✏️</div>
+                    <div class="english-card-copy">
+                        <span class="topic-number">Adventure 3</span>
+                        <h3>Simple Sentences</h3>
+                        <p>Build clear sentences with capitals and full stops.</p>
+                    </div>
+                    <div class="english-card-status" id="status-sentences">Ready</div>
+                    <button onclick="openEnglishLesson('sentences')">Build Sentences 📝</button>
+                </article>
+
+                <article class="english-card reading" data-topic="reading">
+                    <div class="english-card-icon">📖</div>
+                    <div class="english-card-copy">
+                        <span class="topic-number">Adventure 4</span>
+                        <h3>Reading</h3>
+                        <p>Read a tiny story and answer simple questions.</p>
+                    </div>
+                    <div class="english-card-status" id="status-reading">Ready</div>
+                    <button onclick="openEnglishLesson('reading')">Read a Story 🌈</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="english-tip">
+            <div>💡</div>
+            <p><strong>Reader Tip:</strong> Point to each word as you read it aloud. Slow and clear is great!</p>
+        </section>
+    </main>
+
+    <main class="english-lesson" id="english-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-dashboard" onclick="closeEnglishLesson()">← English</button>
+            <div class="lesson-heading">
+                <div class="lesson-heading-icon" id="lesson-icon">🔤</div>
+                <div>
+                    <p class="eyebrow" id="lesson-label">Adventure 1</p>
+                    <h1 id="lesson-title">Alphabet & Phonics</h1>
+                    <p id="lesson-description"></p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="learn-stage">
+            <div class="stage-heading">
+                <span>1</span>
+                <div>
+                    <h2>Learn & Listen</h2>
+                    <p>Tap each card to hear it read aloud.</p>
+                </div>
+            </div>
+            <div class="fact-grid" id="fact-grid"></div>
+            <button class="big-action" id="start-english-quiz" onclick="startEnglishQuiz()">I'm ready for the quiz! 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="quiz-stage" hidden>
+            <div class="quiz-top-row">
+                <div>
+                    <p class="quiz-label">Question <span id="english-question-number">1</span> of <span id="english-question-total">5</span></p>
+                    <h2 id="english-question-text">Question</h2>
+                </div>
+                <div class="quiz-score">⭐ <span id="english-live-score">0</span></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="english-quiz-progress"></div>
+            </div>
+
+            <div class="question-visual" id="english-question-visual" aria-hidden="true">A a</div>
+            <div class="english-answer-grid" id="english-answer-grid"></div>
+            <div class="english-feedback" id="english-feedback" aria-live="polite"></div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="finish-stage" hidden>
+            <div class="finish-stars">🌟 ⭐ 🌟</div>
+            <h2>Wonderful work!</h2>
+            <p id="english-finish-message">You finished the English adventure.</p>
+            <div class="finish-score">
+                <span>Your score</span>
+                <strong id="english-final-score">5 / 5</strong>
+            </div>
+            <div class="finish-actions">
+                <button class="big-action" onclick="closeEnglishLesson()">Choose another adventure 🧭</button>
+                <button class="secondary-action" onclick="restartEnglishLesson()">Try this quiz again 🔁</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="english.js"></script>
+</body>
+</html>

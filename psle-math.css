@@ -1,0 +1,619 @@
+/* =========================================
+   PSLE MATH REVISION
+   Used only by psle-math.html
+========================================= */
+
+body {
+    align-items: flex-start;
+    padding: 34px 20px 60px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.psle-math-dashboard,
+.psle-math-lesson {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.psle-math-header,
+.lesson-header {
+    background: rgba(255, 255, 255, 0.94);
+    border: 3px solid rgba(255, 255, 255, 0.78);
+    border-radius: 30px;
+    padding: 24px 28px;
+    box-shadow: 0 16px 35px rgba(63, 55, 120, 0.12);
+}
+
+.back-home,
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 17px;
+    background: #fff2c7;
+    color: #624500;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-home:hover,
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(99, 73, 0, 0.12);
+}
+
+.psle-math-title-wrap,
+.lesson-heading {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.psle-math-title-icon,
+.lesson-icon {
+    flex: 0 0 auto;
+    width: 82px;
+    height: 82px;
+    border-radius: 25px;
+    display: grid;
+    place-items: center;
+    font-size: 2.7rem;
+    background: linear-gradient(135deg, #fff1a8, #ffd369);
+    box-shadow: 0 10px 20px rgba(255, 183, 0, 0.18);
+}
+
+.eyebrow {
+    margin: 0 0 4px;
+    font-size: 0.84rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #936900;
+}
+
+.psle-math-header h1,
+.lesson-header h1 {
+    margin: 0;
+    color: #3f3476;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.psle-math-header p,
+.lesson-header p {
+    margin-top: 7px;
+    color: #68617c;
+    line-height: 1.55;
+}
+
+.psle-math-progress-card {
+    margin-top: 22px;
+    padding: 20px 24px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #fff9dd, #fff1aa);
+    border: 3px solid #ffe27a;
+    box-shadow: 0 12px 25px rgba(96, 75, 0, 0.09);
+}
+
+.progress-copy,
+.quiz-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-weight: 900;
+    color: #554318;
+}
+
+.psle-math-progress-track,
+.quiz-progress-track {
+    height: 16px;
+    margin-top: 12px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.psle-math-progress-fill,
+.quiz-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #ffb524, #ff7f50);
+    transition: width 0.4s ease;
+}
+
+.psle-math-progress-card p {
+    margin: 10px 0 0;
+    color: #76602b;
+    font-weight: 700;
+}
+
+.psle-math-topics {
+    margin-top: 30px;
+}
+
+.psle-math-topics > h2 {
+    margin: 0;
+    text-align: center;
+    color: #40366d;
+    font-size: 2rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #77708a;
+    margin: 8px 0 22px;
+}
+
+.psle-math-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.psle-math-card {
+    min-height: 265px;
+    padding: 24px;
+    border-radius: 28px;
+    border: 3px solid transparent;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 14px 28px rgba(63, 55, 120, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.psle-math-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 34px rgba(63, 55, 120, 0.14);
+}
+
+.psle-math-card.whole { border-color: #ffd45a; }
+.psle-math-card.fractions { border-color: #8fd6ff; }
+.psle-math-card.percentage { border-color: #b7e789; }
+.psle-math-card.geometry { border-color: #f2a4d2; }
+
+.psle-math-card.completed {
+    box-shadow: 0 0 0 4px rgba(77, 196, 120, 0.14), 0 14px 28px rgba(63, 55, 120, 0.1);
+}
+
+.psle-math-card-icon {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.topic-label {
+    display: inline-block;
+    color: #8e7500;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.psle-math-card h3 {
+    margin: 5px 0 8px;
+    color: #433a70;
+    font-size: 1.45rem;
+}
+
+.psle-math-card p {
+    margin: 0;
+    color: #736d80;
+    line-height: 1.55;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.status-pill {
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: #f2effc;
+    color: #6b5c9a;
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.completed .status-pill {
+    background: #e3f9e9;
+    color: #287745;
+}
+
+.card-bottom button,
+.big-action,
+.secondary-action {
+    border: 0;
+    border-radius: 16px;
+    padding: 12px 18px;
+    font: inherit;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card-bottom button,
+.big-action {
+    background: linear-gradient(135deg, #ffca3a, #ff985c);
+    color: #4a3500;
+    box-shadow: 0 8px 17px rgba(255, 150, 40, 0.2);
+}
+
+.card-bottom button:hover,
+.big-action:hover,
+.secondary-action:hover {
+    transform: translateY(-2px);
+}
+
+.psle-math-tip-card {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 24px;
+    padding: 18px 22px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.9);
+    color: #5e5872;
+    box-shadow: 0 10px 20px rgba(63, 55, 120, 0.08);
+}
+
+.psle-math-tip-card > span {
+    font-size: 2rem;
+}
+
+.psle-math-tip-card p {
+    margin: 4px 0 0;
+}
+
+.psle-math-lesson {
+    max-width: 1000px;
+}
+
+.lesson-stage {
+    margin-top: 22px;
+    padding: 28px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 15px 34px rgba(63, 55, 120, 0.12);
+}
+
+.stage-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.stage-title > span {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #ffe082;
+    color: #664900;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.stage-title h2,
+.stage-title p {
+    margin: 0;
+}
+
+.stage-title h2 {
+    color: #41376f;
+}
+
+.stage-title p {
+    margin-top: 3px;
+    color: #777080;
+}
+
+.fact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.fact-card {
+    border: 2px solid #eee8ff;
+    border-radius: 22px;
+    padding: 19px;
+    text-align: left;
+    background: #fbfaff;
+    cursor: pointer;
+    font: inherit;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-3px);
+    border-color: #ffd45a;
+}
+
+.fact-icon,
+.fact-title,
+.fact-text,
+.fact-listen {
+    display: block;
+}
+
+.fact-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.fact-title {
+    color: #433a70;
+    font-weight: 900;
+    font-size: 1.05rem;
+}
+
+.fact-text {
+    margin-top: 6px;
+    color: #6d667b;
+    line-height: 1.5;
+}
+
+.fact-listen {
+    margin-top: 11px;
+    color: #8b6d00;
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.example-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 18px 20px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #f4f0ff, #fff5cd);
+    border: 2px dashed #d9c86f;
+}
+
+.example-icon {
+    font-size: 2rem;
+}
+
+.example-box strong {
+    color: #433a70;
+}
+
+.example-box p {
+    margin: 5px 0 0;
+    color: #655e75;
+}
+
+.big-action {
+    display: block;
+    width: fit-content;
+    margin: 22px auto 0;
+    font-size: 1rem;
+}
+
+.quiz-topline {
+    color: #5f5873;
+}
+
+.question-card {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.question-visual {
+    min-height: 90px;
+    display: grid;
+    place-items: center;
+    padding: 14px;
+    border-radius: 24px;
+    background: #fff8d7;
+    color: #4b4271;
+    font-size: clamp(2rem, 8vw, 3.3rem);
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+.question-card h2 {
+    margin: 20px 0;
+    color: #40366e;
+    font-size: clamp(1.35rem, 4vw, 1.8rem);
+}
+
+.answer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.answer-button {
+    min-height: 66px;
+    border: 3px solid #e8e2f5;
+    border-radius: 18px;
+    background: #fff;
+    color: #514873;
+    font: inherit;
+    font-size: 1.05rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.answer-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: #ffc841;
+    background: #fffaf0;
+}
+
+.answer-button.correct {
+    border-color: #5bce85;
+    background: #e7faed;
+    color: #21713f;
+}
+
+.answer-button.wrong {
+    border-color: #ff8585;
+    background: #fff0f0;
+    color: #a33232;
+}
+
+.feedback {
+    min-height: 32px;
+    margin-top: 16px;
+    font-weight: 900;
+}
+
+.feedback.good { color: #247c44; }
+.feedback.try-again { color: #a05b25; }
+
+.finish-stage {
+    text-align: center;
+}
+
+.finish-burst {
+    font-size: 4rem;
+}
+
+.finish-stage h2 {
+    margin: 4px 0 12px;
+    color: #41376f;
+    font-size: 2.2rem;
+}
+
+.score-badge {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 999px;
+    background: #fff2ad;
+    color: #5d4500;
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.finish-stage > p:not(.eyebrow) {
+    color: #696174;
+    font-weight: 700;
+}
+
+.finish-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.finish-actions .big-action {
+    margin: 0;
+}
+
+.secondary-action {
+    background: #f0edf9;
+    color: #554b7a;
+}
+
+@media (max-width: 760px) {
+    body {
+        padding: 20px 12px 45px;
+    }
+
+    .psle-math-header,
+    .lesson-header,
+    .lesson-stage {
+        padding: 20px;
+        border-radius: 24px;
+    }
+
+    .psle-math-title-wrap,
+    .lesson-heading {
+        align-items: flex-start;
+    }
+
+    .psle-math-title-icon,
+    .lesson-icon {
+        width: 66px;
+        height: 66px;
+        border-radius: 20px;
+        font-size: 2.1rem;
+    }
+
+    .psle-math-card-grid,
+    .fact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .answer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .psle-math-title-wrap,
+    .lesson-heading {
+        gap: 12px;
+    }
+
+    .psle-math-title-icon,
+    .lesson-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.8rem;
+    }
+
+    .progress-copy,
+    .quiz-topline,
+    .card-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .card-bottom button {
+        width: 100%;
+    }
+
+    .psle-math-card,
+    .lesson-stage {
+        padding: 18px;
+    }
+}
+
+/* P6-specific visual accents */
+.psle-math-title-icon,
+.lesson-icon {
+    background: linear-gradient(135deg, #dff6ff, #a9d8ff);
+    box-shadow: 0 10px 20px rgba(74, 144, 226, 0.18);
+}
+
+.psle-math-progress-card {
+    background: linear-gradient(135deg, #edf8ff, #dfeeff);
+    border-color: #b8dcff;
+}
+
+.psle-math-progress-fill,
+.quiz-progress-fill {
+    background: linear-gradient(90deg, #65b5ff, #8a79ff);
+}
+
+.psle-math-card.whole { border-color: #78c7ff; }
+.psle-math-card.fractions { border-color: #b6a0ff; }
+.psle-math-card.percentage { border-color: #72d5b0; }
+.psle-math-card.geometry { border-color: #ffad7a; }

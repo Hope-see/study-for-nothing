@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2 Math Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="math-p2.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="p2-dashboard" id="p2-dashboard">
+        <header class="p2-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="p2-title-wrap">
+                <div class="p2-title-icon">🧮</div>
+                <div>
+                    <p class="eyebrow">Primary 2</p>
+                    <h1>Math Adventure</h1>
+                    <p>Explore bigger numbers, clever calculations and everyday maths!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="p2-progress-card" aria-label="P2 Math progress">
+            <div class="progress-copy">
+                <span>⭐ My P2 Math Progress</span>
+                <strong id="p2-progress-text">0%</strong>
+            </div>
+            <div class="p2-progress-track">
+                <div class="p2-progress-fill" id="p2-progress-fill"></div>
+            </div>
+            <p id="p2-progress-message">Complete a lesson to earn your first P2 Math star!</p>
+        </section>
+
+        <section class="p2-topics">
+            <h2>Choose a maths adventure</h2>
+            <p class="section-subtitle">Learn the idea, try examples, then complete a 5-question quiz.</p>
+
+            <div class="p2-card-grid">
+                <article class="p2-card numbers" data-topic="numbers">
+                    <div class="p2-card-icon">🔢</div>
+                    <div class="p2-card-copy">
+                        <span class="topic-label">Adventure 1</span>
+                        <h3>Numbers to 1000</h3>
+                        <p>Read, compare and understand hundreds, tens and ones.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-numbers">Ready</span>
+                        <button type="button" onclick="openP2Lesson('numbers')">Start →</button>
+                    </div>
+                </article>
+
+                <article class="p2-card addsub" data-topic="addsub">
+                    <div class="p2-card-icon">➕</div>
+                    <div class="p2-card-copy">
+                        <span class="topic-label">Adventure 2</span>
+                        <h3>Add & Subtract</h3>
+                        <p>Solve addition and subtraction problems within 1000.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-addsub">Ready</span>
+                        <button type="button" onclick="openP2Lesson('addsub')">Start →</button>
+                    </div>
+                </article>
+
+                <article class="p2-card multdiv" data-topic="multdiv">
+                    <div class="p2-card-icon">✖️</div>
+                    <div class="p2-card-copy">
+                        <span class="topic-label">Adventure 3</span>
+                        <h3>Multiply & Divide</h3>
+                        <p>Use equal groups to multiply and share equally to divide.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-multdiv">Ready</span>
+                        <button type="button" onclick="openP2Lesson('multdiv')">Start →</button>
+                    </div>
+                </article>
+
+                <article class="p2-card moneytime" data-topic="moneytime">
+                    <div class="p2-card-icon">🪙</div>
+                    <div class="p2-card-copy">
+                        <span class="topic-label">Adventure 4</span>
+                        <h3>Money & Time</h3>
+                        <p>Count Singapore money and read simple times on the clock.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-moneytime">Ready</span>
+                        <button type="button" onclick="openP2Lesson('moneytime')">Start →</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="p2-tip-card">
+            <span>💡</span>
+            <div>
+                <strong>Maths tip</strong>
+                <p>Use drawings, groups, number bonds or place-value blocks whenever a question feels tricky.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="p2-lesson" id="p2-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-button" type="button" onclick="closeP2Lesson()">← P2 Math</button>
+            <div class="lesson-heading">
+                <div class="lesson-icon" id="lesson-icon">🔢</div>
+                <div>
+                    <p class="eyebrow" id="lesson-label">Adventure</p>
+                    <h1 id="lesson-title">Lesson</h1>
+                    <p id="lesson-description">Let’s learn!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="learn-stage">
+            <div class="stage-title">
+                <span>1</span>
+                <div>
+                    <h2>Learn</h2>
+                    <p>Tap a card to hear it read aloud.</p>
+                </div>
+            </div>
+
+            <div class="fact-grid" id="fact-grid"></div>
+
+            <div class="example-box" id="example-box">
+                <span class="example-icon" id="example-icon">🧩</span>
+                <div>
+                    <strong id="example-title">Example</strong>
+                    <p id="example-text"></p>
+                </div>
+            </div>
+
+            <button class="big-action" type="button" onclick="startP2Quiz()">Start the Quiz 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="quiz-stage" hidden>
+            <div class="quiz-topline">
+                <div>
+                    Question <strong id="p2-question-number">1</strong> of <strong id="p2-question-total">5</strong>
+                </div>
+                <div>Score: <strong id="p2-live-score">0</strong></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="p2-quiz-progress"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-visual" id="p2-question-visual">🔢</div>
+                <h2 id="p2-question-text">Question</h2>
+                <div class="answer-grid" id="p2-answer-grid"></div>
+                <div class="feedback" id="p2-feedback" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="finish-stage" hidden>
+            <div class="finish-burst">🎉</div>
+            <p class="eyebrow">Adventure complete!</p>
+            <h2>Great maths work!</h2>
+            <div class="score-badge" id="p2-final-score">0 / 5</div>
+            <p id="p2-finish-message">You finished the lesson!</p>
+            <div class="finish-actions">
+                <button type="button" class="secondary-action" onclick="restartP2Lesson()">Try Quiz Again</button>
+                <button type="button" class="big-action" onclick="closeP2Lesson()">Back to P2 Math ⭐</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="math-p2.js"></script>
+</body>
+</html>

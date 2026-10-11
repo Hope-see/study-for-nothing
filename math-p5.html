@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5 Math Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="math-p5.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div><div class="bubble bubble-2"></div><div class="bubble bubble-3"></div><div class="bubble bubble-4"></div><div class="bubble bubble-5"></div>
+
+    <main class="p5-dashboard" id="p5-dashboard">
+        <header class="p5-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="p5-title-wrap">
+                <div class="p5-title-icon">🧮</div>
+                <div><p class="eyebrow">Primary 5</p><h1>Math Adventure</h1><p>Master large numbers, fraction and decimal operations, percentages, rates, area, volume and angles!</p></div>
+            </div>
+        </header>
+
+        <section class="p5-progress-card" aria-label="P5 Math progress">
+            <div class="progress-copy"><span>⭐ My P5 Math Progress</span><strong id="p5-progress-text">0%</strong></div>
+            <div class="p5-progress-track"><div class="p5-progress-fill" id="p5-progress-fill"></div></div>
+            <p id="p5-progress-message">Complete a lesson to earn your first P5 Math star!</p>
+        </section>
+
+        <section class="p5-topics">
+            <h2>Choose a maths adventure</h2>
+            <p class="section-subtitle">Learn the idea, study an example, then complete a 5-question quiz.</p>
+            <div class="p5-card-grid">
+                <article class="p5-card whole" data-topic="whole">
+                    <div class="p5-card-icon">🔢</div><div class="p5-card-copy"><span class="topic-label">Adventure 1</span><h3>Whole Numbers & Order of Operations</h3><p>Work with numbers to 10 million, brackets and the correct order of operations.</p></div>
+                    <div class="card-bottom"><span class="status-pill" id="status-whole">Ready</span><button type="button" onclick="openP5Lesson('whole')">Start →</button></div>
+                </article>
+                <article class="p5-card fractions" data-topic="fractions">
+                    <div class="p5-card-icon">🍕</div><div class="p5-card-copy"><span class="topic-label">Adventure 2</span><h3>Fractions & Decimals</h3><p>Connect fractions and division, operate with mixed numbers, and work with decimals.</p></div>
+                    <div class="card-bottom"><span class="status-pill" id="status-fractions">Ready</span><button type="button" onclick="openP5Lesson('fractions')">Start →</button></div>
+                </article>
+                <article class="p5-card percentage" data-topic="percentage">
+                    <div class="p5-card-icon">💯</div><div class="p5-card-copy"><span class="topic-label">Adventure 3</span><h3>Percentage & Rate</h3><p>Find percentages, discounts and unit rates, then solve real-world problems.</p></div>
+                    <div class="card-bottom"><span class="status-pill" id="status-percentage">Ready</span><button type="button" onclick="openP5Lesson('percentage')">Start →</button></div>
+                </article>
+                <article class="p5-card geometry" data-topic="geometry">
+                    <div class="p5-card-icon">📐</div><div class="p5-card-copy"><span class="topic-label">Adventure 4</span><h3>Area, Volume & Angles</h3><p>Find triangle area, cuboid volume and unknown angles in common figures.</p></div>
+                    <div class="card-bottom"><span class="status-pill" id="status-geometry">Ready</span><button type="button" onclick="openP5Lesson('geometry')">Start →</button></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="p5-tip-card"><span>💡</span><div><strong>P5 Maths tip</strong><p>Write one step at a time. For word problems, identify what you know, what you need to find, and which operation connects them.</p></div></section>
+    </main>
+
+    <main class="p5-lesson" id="p5-lesson" hidden>
+        <header class="lesson-header"><button class="back-button" type="button" onclick="closeP5Lesson()">← P5 Math</button><div class="lesson-heading"><div class="lesson-icon" id="lesson-icon">🔢</div><div><p class="eyebrow" id="lesson-label">Adventure</p><h1 id="lesson-title">Lesson</h1><p id="lesson-description">Let’s learn!</p></div></div></header>
+        <section class="lesson-stage" id="learn-stage"><div class="stage-title"><span>1</span><div><h2>Learn</h2><p>Tap a card to hear it read aloud.</p></div></div><div class="fact-grid" id="fact-grid"></div><div class="example-box"><span class="example-icon" id="example-icon">🧩</span><div><strong id="example-title">Example</strong><p id="example-text"></p></div></div><button class="big-action" type="button" onclick="startP5Quiz()">Start the Quiz 🚀</button></section>
+        <section class="lesson-stage quiz-stage" id="quiz-stage" hidden><div class="quiz-topline"><div>Question <strong id="p5-question-number">1</strong> of <strong id="p5-question-total">5</strong></div><div>Score: <strong id="p5-live-score">0</strong></div></div><div class="quiz-progress-track"><div class="quiz-progress-fill" id="p5-quiz-progress"></div></div><div class="question-card"><div class="question-visual" id="p5-question-visual">🔢</div><h2 id="p5-question-text">Question</h2><div class="answer-grid" id="p5-answer-grid"></div><div class="feedback" id="p5-feedback" aria-live="polite"></div></div></section>
+        <section class="lesson-stage finish-stage" id="finish-stage" hidden><div class="finish-burst">🎉</div><p class="eyebrow">Adventure complete!</p><h2>Excellent P5 maths work!</h2><div class="score-badge" id="p5-final-score">0 / 5</div><p id="p5-finish-message">You finished the lesson!</p><div class="finish-actions"><button type="button" class="secondary-action" onclick="restartP5Lesson()">Try Quiz Again</button><button type="button" class="big-action" onclick="closeP5Lesson()">Back to P5 Math ⭐</button></div></section>
+    </main>
+    <script src="math-p5.js"></script>
+</body>
+</html>

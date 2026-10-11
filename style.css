@@ -1,0 +1,358 @@
+/* ========================================
+   GLOBAL STYLE SHEET
+   Shared across every page (index.html,
+   math.html, and any future subject page).
+
+   Only put things here that ALL pages need:
+   reset, page background, fonts, floating
+   bubbles, shared animations, and small
+   reusable pieces like the back button.
+
+   Subject-specific layout (the Math
+   dashboard, lessons, quizzes, etc.) lives
+   in that subject's own CSS file
+   (e.g. math.css) so this file stays short
+   and easy to scan as more subjects are
+   added.
+======================================== */
+
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   BODY
+======================================== */
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow-x: hidden;
+
+    color: #29264b;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #fff6a8 0%,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 20%,
+            #ffc8ec 0%,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            #bdefff 0%,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fff0fa,
+            #edf8ff
+        );
+
+    position: relative;
+}
+
+
+/* ========================================
+   BACKGROUND BUBBLES
+======================================== */
+
+.bubble {
+    position: fixed;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    filter: blur(1px);
+
+    animation:
+        float 6s ease-in-out infinite;
+}
+
+
+.bubble-1 {
+    width: 260px;
+    height: 260px;
+
+    top: -100px;
+    left: -80px;
+
+    background:
+        rgba(145, 110, 255, 0.18);
+}
+
+
+.bubble-2 {
+    width: 330px;
+    height: 330px;
+
+    right: -120px;
+    bottom: -130px;
+
+    background:
+        rgba(255, 105, 180, 0.17);
+
+    animation-delay: 1s;
+}
+
+
+.bubble-3 {
+    width: 110px;
+    height: 110px;
+
+    top: 15%;
+    right: 7%;
+
+    background:
+        rgba(255, 209, 102, 0.35);
+
+    animation-delay: 2s;
+}
+
+
+.bubble-4 {
+    width: 85px;
+    height: 85px;
+
+    bottom: 20%;
+    left: 7%;
+
+    background:
+        rgba(66, 200, 255, 0.25);
+
+    animation-delay: 3s;
+}
+
+
+.bubble-5 {
+    width: 45px;
+    height: 45px;
+
+    top: 45%;
+    left: 3%;
+
+    background:
+        rgba(255, 79, 154, 0.25);
+
+    animation-delay: 4s;
+}
+
+
+@media (max-width: 700px) {
+
+    .bubble-3,
+    .bubble-4,
+    .bubble-5 {
+        display: none;
+    }
+}
+
+
+/* ========================================
+   SHARED ANIMATIONS
+======================================== */
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes levelsAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ========================================
+   SHARED BUTTONS
+   (used by the dashboard/lesson pages of
+   every subject)
+======================================== */
+
+.back-button {
+    border: none;
+
+    background: white;
+
+    color: #5a3fc0;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    padding: 12px 20px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    box-shadow:
+        0 6px 15px
+        rgba(80, 70, 130, 0.12);
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.back-button:hover {
+    transform: translateX(-5px);
+}
+
+
+.start-quiz-button {
+    border: none;
+
+    padding: 16px 32px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f9a,
+            #e52e76
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 0
+        rgba(180, 30, 90, 0.25);
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.start-quiz-button:hover {
+    transform:
+        scale(1.06)
+        translateY(-3px);
+}
+
+
+.finish-button {
+    border: none;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6c4cff,
+            #8e7dff
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 0
+        rgba(70, 50, 180, 0.25);
+}

@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Math Adventure - My Learning Adventure</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="math.css">
+</head>
+
+<body>
+
+    <!-- Background bubbles -->
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+
+    <!-- ================================
+         MATH P1 DASHBOARD
+    ================================= -->
+
+    <main class="dashboard" id="math-p1-page">
+
+        <!-- Dashboard Header -->
+
+        <section class="dashboard-header">
+
+            <a
+                class="back-button"
+                href="index.html">
+
+                ← Home
+
+            </a>
+
+
+            <div class="dashboard-title">
+
+                <div class="dashboard-icon">
+                    🧮
+                </div>
+
+                <div>
+
+                    <p>Primary 1</p>
+
+                    <h1>Math Adventure!</h1>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Welcome -->
+
+        <section class="dashboard-welcome">
+
+            <div>
+
+                <h2>
+                    Ready to learn? 🚀
+                </h2>
+
+                <p>
+                    Choose an activity and start your
+                    Math adventure!
+                </p>
+
+            </div>
+
+            <div class="big-star">
+                ⭐
+            </div>
+
+        </section>
+
+
+        <!-- Progress -->
+
+        <section class="progress-card">
+
+            <div class="progress-top">
+
+                <h3>🌟 Your Progress</h3>
+
+                <strong id="math-progress-text">0%</strong>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="math-progress-fill">
+                </div>
+
+            </div>
+
+            <p>
+                Let's complete your first lesson!
+            </p>
+
+        </section>
+
+
+        <!-- Learning Activities -->
+
+        <section class="learning-section">
+
+            <h2>📚 Start Learning</h2>
+
+
+            <div class="learning-cards">
+
+
+                <!-- Numbers -->
+
+                <article class="learning-card numbers">
+
+                    <div class="learning-icon">
+                        🔢
+                    </div>
+
+                    <h3>Numbers</h3>
+
+                    <p>
+                        Learn to recognise and count
+                        numbers.
+                    </p>
+
+                    <button onclick="openNumbersLesson()">
+                        Start Lesson →
+                    </button>
+
+                </article>
+
+
+                <!-- Addition -->
+
+                <article class="learning-card addition">
+
+                    <div class="learning-icon">
+                        ➕
+                    </div>
+
+                    <h3>Addition</h3>
+
+                    <p>
+                        Learn how to add numbers
+                        together.
+                    </p>
+
+                    <button onclick="openAdditionLesson()">
+                        Start Lesson →
+                    </button>
+
+                </article>
+
+
+                <!-- Shapes -->
+
+                <article class="learning-card shapes">
+
+                    <div class="learning-icon">
+                        🔺
+                    </div>
+
+                    <h3>Shapes</h3>
+
+                    <p>
+                        Discover circles, squares,
+                        triangles and more.
+                    </p>
+
+                    <button onclick="openShapesLesson()">
+                        Start Lesson →
+                    </button>
+
+                </article>
+
+
+                <!-- Counting -->
+
+                <article class="learning-card counting">
+
+                    <div class="learning-icon">
+                        🧸
+                    </div>
+
+                    <h3>Counting</h3>
+
+                    <p>
+                        Count groups of objects
+                        all the way to 20.
+                    </p>
+
+                    <button onclick="openCountingLesson()">
+                        Start Lesson →
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Coming Soon -->
+
+        <section class="coming-soon">
+
+            <span>🏆</span>
+
+            <div>
+
+                <h3>More adventures are coming!</h3>
+
+                <p>
+                    Quizzes, challenges and rewards
+                    will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =================================
+         P1 NUMBERS LESSON
+    ================================= -->
+
+    <main class="lesson-page" id="numbers-lesson">
+
+        <!-- Lesson Header -->
+
+        <section class="lesson-header">
+
+            <button
+                class="back-button"
+                onclick="closeNumbersLesson()">
+
+                ← Back
+
+            </button>
+
+            <div class="lesson-title">
+
+                <div class="lesson-icon">
+                    🔢
+                </div>
+
+                <div>
+                    <p>Primary 1 • Math</p>
+                    <h1>Numbers 1–10</h1>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Lesson Progress -->
+
+        <section class="lesson-progress">
+
+            <div class="lesson-progress-top">
+
+                <span>Lesson Progress</span>
+
+                <strong id="question-number">
+                    1 / 5
+                </strong>
+
+            </div>
+
+            <div class="lesson-progress-bar">
+
+                <div
+                    class="lesson-progress-fill"
+                    id="lesson-progress-fill">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             LEARN NUMBERS
+        ================================= -->
+
+        <section
+            class="learn-numbers"
+            id="learn-screen">
+
+            <div class="lesson-badge">
+                🌟 Let's Learn!
+            </div>
+
+            <h2>
+                Meet the Numbers!
+            </h2>
+
+            <p>
+                Click a number to practise it.
+            </p>
+
+
+            <div class="number-grid">
+
+                <button onclick="sayNumber(1)">
+                    <span>1</span>
+                    <small>One</small>
+                </button>
+
+                <button onclick="sayNumber(2)">
+                    <span>2</span>
+                    <small>Two</small>
+                </button>
+
+                <button onclick="sayNumber(3)">
+                    <span>3</span>
+                    <small>Three</small>
+                </button>
+
+                <button onclick="sayNumber(4)">
+                    <span>4</span>
+                    <small>Four</small>
+                </button>
+
+                <button onclick="sayNumber(5)">
+                    <span>5</span>
+                    <small>Five</small>
+                </button>
+
+                <button onclick="sayNumber(6)">
+                    <span>6</span>
+                    <small>Six</small>
+                </button>
+
+                <button onclick="sayNumber(7)">
+                    <span>7</span>
+                    <small>Seven</small>
+                </button>
+
+                <button onclick="sayNumber(8)">
+                    <span>8</span>
+                    <small>Eight</small>
+                </button>
+
+                <button onclick="sayNumber(9)">
+                    <span>9</span>
+                    <small>Nine</small>
+                </button>
+
+                <button onclick="sayNumber(10)">
+                    <span>10</span>
+                    <small>Ten</small>
+                </button>
+
+            </div>
+
+
+            <button
+                class="start-quiz-button"
+                onclick="startNumbersQuiz()">
+
+                I'm Ready! 🎯
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             QUIZ
+        ================================= -->
+
+        <section
+            class="quiz-screen"
+            id="quiz-screen">
+
+            <div class="quiz-card">
+
+                <div class="quiz-emoji">
+                    🧸
+                </div>
+
+                <h2 id="quiz-question">
+                    How many apples are there?
+                </h2>
+
+
+                <!-- Objects -->
+
+                <div
+                    class="counting-objects"
+                    id="counting-objects">
+                </div>
+
+
+                <p class="quiz-hint">
+                    Choose the correct number!
+                </p>
+
+
+                <!-- Answers -->
+
+                <div class="answer-buttons">
+
+                    <button onclick="checkAnswer(2)">
+                        2
+                    </button>
+
+                    <button onclick="checkAnswer(3)">
+                        3
+                    </button>
+
+                    <button onclick="checkAnswer(4)">
+                        4
+                    </button>
+
+                    <button onclick="checkAnswer(5)">
+                        5
+                    </button>
+
+                </div>
+
+
+                <!-- Feedback -->
+
+                <div
+                    class="quiz-feedback"
+                    id="quiz-feedback">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             COMPLETION
+        ================================= -->
+
+        <section
+            class="completion-screen"
+            id="completion-screen">
+
+            <div class="completion-card">
+
+                <div class="trophy">
+                    🏆
+                </div>
+
+                <h2>
+                    Amazing Job! 🎉
+                </h2>
+
+                <p>
+                    You completed the Numbers 1–10 lesson!
+                </p>
+
+
+                <div class="final-score">
+
+                    <span>⭐</span>
+
+                    <strong id="final-score">
+                        0
+                    </strong>
+
+                    <small>
+                        points
+                    </small>
+
+                </div>
+
+
+                <button
+                    class="finish-button"
+                    onclick="closeNumbersLesson()">
+
+                    Back to Math 🚀
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =================================
+         P1 ADDITION LESSON
+    ================================= -->
+
+    <main class="lesson-page" id="addition-lesson">
+
+        <!-- Lesson Header -->
+
+        <section class="lesson-header">
+
+            <button
+                class="back-button"
+                onclick="closeAdditionLesson()">
+
+                ← Back
+
+            </button>
+
+            <div class="lesson-title">
+
+                <div class="lesson-icon">
+                    ➕
+                </div>
+
+                <div>
+
+                    <p>Primary 1 • Math</p>
+
+                    <h1>Let's Learn Addition!</h1>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Progress -->
+
+        <section class="lesson-progress">
+
+            <div class="lesson-progress-top">
+
+                <span>Lesson Progress</span>
+
+                <strong id="addition-progress-text">
+                    Learning
+                </strong>
+
+            </div>
+
+            <div class="lesson-progress-bar">
+
+                <div
+                    class="lesson-progress-fill"
+                    id="addition-progress">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             ADDITION LEARNING
+        ================================= -->
+
+        <section
+            class="addition-learn"
+            id="addition-learn-screen">
+
+            <div class="lesson-badge">
+                🌟 Let's Learn!
+            </div>
+
+            <h2>
+                What is Addition?
+            </h2>
+
+            <p>
+                Addition means putting numbers together!
+            </p>
+
+
+            <!-- Example -->
+
+            <div class="addition-example">
+
+                <div class="addition-group">
+
+                    <div class="addition-objects">
+                        🍎 🍎
+                    </div>
+
+                    <strong>2</strong>
+
+                </div>
+
+
+                <div class="plus-sign">
+                    +
+                </div>
+
+
+                <div class="addition-group">
+
+                    <div class="addition-objects">
+                        🍎 🍎 🍎
+                    </div>
+
+                    <strong>3</strong>
+
+                </div>
+
+
+                <div class="equals-sign">
+                    =
+                </div>
+
+
+                <div class="answer-example">
+
+                    <div class="addition-objects">
+                        🍎 🍎 🍎 🍎 🍎
+                    </div>
+
+                    <strong>5</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="addition-rule">
+
+                💡 <strong>2 + 3 = 5</strong>
+
+                <br>
+
+                We put 2 apples and 3 apples
+                together to get 5 apples!
+
+            </div>
+
+
+            <button
+                class="start-quiz-button"
+                onclick="startAdditionQuiz()">
+
+                Let's Practise! 🎯
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             ADDITION QUIZ
+        ================================= -->
+
+        <section
+            class="quiz-screen"
+            id="addition-quiz-screen">
+
+            <div class="quiz-card">
+
+                <div class="quiz-emoji">
+                    🧮
+                </div>
+
+                <h2 id="addition-question">
+                    What is 1 + 1?
+                </h2>
+
+
+                <!-- Visual objects -->
+
+                <div
+                    class="addition-visual"
+                    id="addition-visual">
+                </div>
+
+
+                <p class="quiz-hint">
+                    Choose the correct answer!
+                </p>
+
+
+                <!-- Answers -->
+
+                <div class="answer-buttons">
+
+                    <button onclick="checkAdditionAnswer(2)">
+                        2
+                    </button>
+
+                    <button onclick="checkAdditionAnswer(3)">
+                        3
+                    </button>
+
+                    <button onclick="checkAdditionAnswer(4)">
+                        4
+                    </button>
+
+                    <button onclick="checkAdditionAnswer(5)">
+                        5
+                    </button>
+
+                </div>
+
+
+                <!-- Feedback -->
+
+                <div
+                    class="quiz-feedback"
+                    id="addition-feedback">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             ADDITION COMPLETION
+        ================================= -->
+
+        <section
+            class="completion-screen"
+            id="addition-completion">
+
+            <div class="completion-card">
+
+                <div class="trophy">
+                    🏆
+                </div>
+
+                <h2>
+                    Addition Master! 🎉
+                </h2>
+
+                <p>
+                    You finished your first
+                    addition challenge!
+                </p>
+
+
+                <div class="final-score">
+
+                    <span>⭐</span>
+
+                    <strong id="addition-final-score">
+                        0
+                    </strong>
+
+                    <small>
+                        points
+                    </small>
+
+                </div>
+
+
+                <button
+                    class="finish-button"
+                    onclick="closeAdditionLesson()">
+
+                    Back to Math 🚀
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =================================
+         P1 SHAPES LESSON
+    ================================= -->
+
+    <main class="lesson-page" id="shapes-lesson">
+
+        <!-- Lesson Header -->
+
+        <section class="lesson-header">
+
+            <button
+                class="back-button"
+                onclick="closeShapesLesson()">
+
+                ← Back
+
+            </button>
+
+            <div class="lesson-title">
+
+                <div class="lesson-icon">
+                    🔺
+                </div>
+
+                <div>
+
+                    <p>Primary 1 • Math</p>
+
+                    <h1>Shapes</h1>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Progress -->
+
+        <section class="lesson-progress">
+
+            <div class="lesson-progress-top">
+
+                <span>Lesson Progress</span>
+
+                <strong id="shapes-progress-text">
+                    Learning
+                </strong>
+
+            </div>
+
+            <div class="lesson-progress-bar">
+
+                <div
+                    class="lesson-progress-fill"
+                    id="shapes-progress">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             LEARN SHAPES
+        ================================= -->
+
+        <section
+            class="shape-learn"
+            id="shape-learn-screen">
+
+            <div class="lesson-badge">
+                🌟 Let's Learn!
+            </div>
+
+            <h2>
+                Meet the Shapes!
+            </h2>
+
+            <p>
+                Click a shape to hear its name.
+            </p>
+
+
+            <div class="shape-grid">
+
+                <button onclick="sayShape('Circle')">
+                    <div class="shape circle"></div>
+                    <strong>Circle</strong>
+                    <small>Round like a ball</small>
+                </button>
+
+                <button onclick="sayShape('Square')">
+                    <div class="shape square"></div>
+                    <strong>Square</strong>
+                    <small>4 equal sides</small>
+                </button>
+
+                <button onclick="sayShape('Triangle')">
+                    <div class="shape triangle"></div>
+                    <strong>Triangle</strong>
+                    <small>3 sides</small>
+                </button>
+
+                <button onclick="sayShape('Rectangle')">
+                    <div class="shape rectangle"></div>
+                    <strong>Rectangle</strong>
+                    <small>Longer than tall</small>
+                </button>
+
+            </div>
+
+
+            <button
+                class="start-quiz-button"
+                onclick="startShapesQuiz()">
+
+                I'm Ready! 🎯
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             SHAPES QUIZ
+        ================================= -->
+
+        <section
+            class="quiz-screen"
+            id="shapes-quiz-screen">
+
+            <div class="quiz-card">
+
+                <div
+                    class="shape-question-icon"
+                    id="shape-question-icon">
+                    🔺
+                </div>
+
+                <h2 id="shape-question">
+                    Which shape has 3 sides?
+                </h2>
+
+                <p class="quiz-hint">
+                    Choose the correct shape!
+                </p>
+
+
+                <!-- Answers -->
+
+                <div class="shape-answer-grid">
+
+                    <button onclick="checkShapeAnswer('Triangle')">
+                        <div class="answer-shape triangle"></div>
+                        Triangle
+                    </button>
+
+                    <button onclick="checkShapeAnswer('Circle')">
+                        <div class="answer-shape circle"></div>
+                        Circle
+                    </button>
+
+                    <button onclick="checkShapeAnswer('Square')">
+                        <div class="answer-shape square"></div>
+                        Square
+                    </button>
+
+                    <button onclick="checkShapeAnswer('Rectangle')">
+                        <div class="answer-shape rectangle"></div>
+                        Rectangle
+                    </button>
+
+                </div>
+
+
+                <!-- Feedback -->
+
+                <div
+                    class="quiz-feedback"
+                    id="shape-feedback">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             SHAPES COMPLETION
+        ================================= -->
+
+        <section
+            class="completion-screen"
+            id="shapes-completion">
+
+            <div class="completion-card">
+
+                <div class="trophy">
+                    🏆
+                </div>
+
+                <h2>
+                    Shape Superstar! 🎉
+                </h2>
+
+                <p>
+                    You finished the Shapes lesson!
+                </p>
+
+
+                <div class="final-score">
+
+                    <span>⭐</span>
+
+                    <strong id="shapes-final-score">
+                        0
+                    </strong>
+
+                    <small>
+                        points
+                    </small>
+
+                </div>
+
+
+                <button
+                    class="finish-button"
+                    onclick="closeShapesLesson()">
+
+                    Back to Math 🚀
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =================================
+         P1 COUNTING LESSON
+    ================================= -->
+
+    <main class="lesson-page" id="counting-lesson">
+
+        <!-- Lesson Header -->
+
+        <section class="lesson-header">
+
+            <button
+                class="back-button"
+                onclick="closeCountingLesson()">
+
+                ← Back
+
+            </button>
+
+            <div class="lesson-title">
+
+                <div class="lesson-icon">
+                    🧸
+                </div>
+
+                <div>
+
+                    <p>Primary 1 • Math</p>
+
+                    <h1>Counting</h1>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Progress -->
+
+        <section class="lesson-progress">
+
+            <div class="lesson-progress-top">
+
+                <span>Lesson Progress</span>
+
+                <strong id="counting-progress-text">
+                    Learning
+                </strong>
+
+            </div>
+
+            <div class="lesson-progress-bar">
+
+                <div
+                    class="lesson-progress-fill"
+                    id="counting-progress">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             LEARN COUNTING
+        ================================= -->
+
+        <section
+            class="counting-learn"
+            id="counting-learn-screen">
+
+            <div class="lesson-badge">
+                🌟 Let's Count!
+            </div>
+
+            <h2>
+                Count the Objects
+            </h2>
+
+            <p>
+                Count each group, then click it to hear the number.
+            </p>
+
+            <div class="counting-example-grid">
+
+                <button
+                    class="counting-example"
+                    onclick="sayCount(5, 'apples')">
+                    <span class="counting-objects">🍎 🍎 🍎 🍎 🍎</span>
+                    <strong>5</strong>
+                    <small>five apples</small>
+                </button>
+
+                <button
+                    class="counting-example"
+                    onclick="sayCount(10, 'stars')">
+                    <span class="counting-objects">⭐ ⭐ ⭐ ⭐ ⭐<br>⭐ ⭐ ⭐ ⭐ ⭐</span>
+                    <strong>10</strong>
+                    <small>ten stars</small>
+                </button>
+
+                <button
+                    class="counting-example"
+                    onclick="sayCount(15, 'balls')">
+                    <span class="counting-objects">⚽ ⚽ ⚽ ⚽ ⚽<br>⚽ ⚽ ⚽ ⚽ ⚽<br>⚽ ⚽ ⚽ ⚽ ⚽</span>
+                    <strong>15</strong>
+                    <small>fifteen balls</small>
+                </button>
+
+                <button
+                    class="counting-example"
+                    onclick="sayCount(20, 'hearts')">
+                    <span class="counting-objects">💖 💖 💖 💖 💖<br>💖 💖 💖 💖 💖<br>💖 💖 💖 💖 💖<br>💖 💖 💖 💖 💖</span>
+                    <strong>20</strong>
+                    <small>twenty hearts</small>
+                </button>
+
+            </div>
+
+            <div class="counting-tip">
+                💡 Tip: Point to each object once as you count.
+            </div>
+
+            <button
+                class="start-quiz-button"
+                onclick="startCountingQuiz()">
+
+                I'm Ready! 🎯
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================
+             COUNTING QUIZ
+        ================================= -->
+
+        <section
+            class="quiz-screen"
+            id="counting-quiz-screen">
+
+            <div class="quiz-card">
+
+                <div class="counting-question-icon">
+                    🔢
+                </div>
+
+                <h2 id="counting-question">
+                    How many objects are there?
+                </h2>
+
+                <p class="quiz-hint">
+                    Count carefully, then choose the answer!
+                </p>
+
+                <div
+                    class="counting-question-objects"
+                    id="counting-question-objects">
+                </div>
+
+                <div
+                    class="counting-answer-grid"
+                    id="counting-answers">
+                </div>
+
+                <div
+                    class="quiz-feedback"
+                    id="counting-feedback">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             COUNTING COMPLETION
+        ================================= -->
+
+        <section
+            class="completion-screen"
+            id="counting-completion">
+
+            <div class="completion-card">
+
+                <div class="trophy">
+                    🏆
+                </div>
+
+                <h2>
+                    Counting Champion! 🎉
+                </h2>
+
+                <p>
+                    You finished the Counting lesson!
+                </p>
+
+                <div class="final-score">
+
+                    <span>⭐</span>
+
+                    <strong id="counting-final-score">
+                        0
+                    </strong>
+
+                    <small>
+                        points
+                    </small>
+
+                </div>
+
+                <button
+                    class="finish-button"
+                    onclick="closeCountingLesson()">
+
+                    Back to Math 🚀
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+
+    <script src="math.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3 Math Adventure - My Learning Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="math-p3.css">
+</head>
+<body>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+
+    <main class="p3-dashboard" id="p3-dashboard">
+        <header class="p3-header">
+            <a class="back-home" href="index.html">← Home</a>
+            <div class="p3-title-wrap">
+                <div class="p3-title-icon">🧮</div>
+                <div>
+                    <p class="eyebrow">Primary 3</p>
+                    <h1>Math Adventure</h1>
+                    <p>Round bigger numbers, solve four-operation problems, explore fractions and measure the world!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="p3-progress-card" aria-label="P3 Math progress">
+            <div class="progress-copy">
+                <span>⭐ My P3 Math Progress</span>
+                <strong id="p3-progress-text">0%</strong>
+            </div>
+            <div class="p3-progress-track">
+                <div class="p3-progress-fill" id="p3-progress-fill"></div>
+            </div>
+            <p id="p3-progress-message">Complete a lesson to earn your first P3 Math star!</p>
+        </section>
+
+        <section class="p3-topics">
+            <h2>Choose a maths adventure</h2>
+            <p class="section-subtitle">Learn the idea, study an example, then complete a 5-question quiz.</p>
+
+            <div class="p3-card-grid">
+                <article class="p3-card rounding" data-topic="rounding">
+                    <div class="p3-card-icon">🎯</div>
+                    <div class="p3-card-copy">
+                        <span class="topic-label">Adventure 1</span>
+                        <h3>Rounding Off</h3>
+                        <p>Round numbers to the nearest 10 and nearest 100.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-rounding">Ready</span>
+                        <button type="button" onclick="openP3Lesson('rounding')">Start →</button>
+                    </div>
+                </article>
+
+                <article class="p3-card operations" data-topic="operations">
+                    <div class="p3-card-icon">➕</div>
+                    <div class="p3-card-copy">
+                        <span class="topic-label">Adventure 2</span>
+                        <h3>Four Operations</h3>
+                        <p>Use addition, subtraction, multiplication and division to solve problems.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-operations">Ready</span>
+                        <button type="button" onclick="openP3Lesson('operations')">Start →</button>
+                    </div>
+                </article>
+
+                <article class="p3-card fractions" data-topic="fractions">
+                    <div class="p3-card-icon">🍕</div>
+                    <div class="p3-card-copy">
+                        <span class="topic-label">Adventure 3</span>
+                        <h3>Fractions</h3>
+                        <p>Understand numerators, denominators, equivalent fractions and comparisons.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-fractions">Ready</span>
+                        <button type="button" onclick="openP3Lesson('fractions')">Start →</button>
+                    </div>
+                </article>
+
+                <article class="p3-card measure" data-topic="measure">
+                    <div class="p3-card-icon">📏</div>
+                    <div class="p3-card-copy">
+                        <span class="topic-label">Adventure 4</span>
+                        <h3>Measurement & Time</h3>
+                        <p>Work with length, mass, capacity, perimeter and time.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="status-pill" id="status-measure">Ready</span>
+                        <button type="button" onclick="openP3Lesson('measure')">Start →</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="p3-tip-card">
+            <span>💡</span>
+            <div>
+                <strong>P3 Maths tip</strong>
+                <p>Estimate first. A quick estimate can help you notice when an answer is much too big or too small.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="p3-lesson" id="p3-lesson" hidden>
+        <header class="lesson-header">
+            <button class="back-button" type="button" onclick="closeP3Lesson()">← P3 Math</button>
+            <div class="lesson-heading">
+                <div class="lesson-icon" id="lesson-icon">🎯</div>
+                <div>
+                    <p class="eyebrow" id="lesson-label">Adventure</p>
+                    <h1 id="lesson-title">Lesson</h1>
+                    <p id="lesson-description">Let’s learn!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="lesson-stage" id="learn-stage">
+            <div class="stage-title">
+                <span>1</span>
+                <div>
+                    <h2>Learn</h2>
+                    <p>Tap a card to hear it read aloud.</p>
+                </div>
+            </div>
+
+            <div class="fact-grid" id="fact-grid"></div>
+
+            <div class="example-box" id="example-box">
+                <span class="example-icon" id="example-icon">🧩</span>
+                <div>
+                    <strong id="example-title">Example</strong>
+                    <p id="example-text"></p>
+                </div>
+            </div>
+
+            <button class="big-action" type="button" onclick="startP3Quiz()">Start the Quiz 🚀</button>
+        </section>
+
+        <section class="lesson-stage quiz-stage" id="quiz-stage" hidden>
+            <div class="quiz-topline">
+                <div>
+                    Question <strong id="p3-question-number">1</strong> of <strong id="p3-question-total">5</strong>
+                </div>
+                <div>Score: <strong id="p3-live-score">0</strong></div>
+            </div>
+
+            <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="p3-quiz-progress"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-visual" id="p3-question-visual">🎯</div>
+                <h2 id="p3-question-text">Question</h2>
+                <div class="answer-grid" id="p3-answer-grid"></div>
+                <div class="feedback" id="p3-feedback" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="lesson-stage finish-stage" id="finish-stage" hidden>
+            <div class="finish-burst">🎉</div>
+            <p class="eyebrow">Adventure complete!</p>
+            <h2>Excellent P3 maths work!</h2>
+            <div class="score-badge" id="p3-final-score">0 / 5</div>
+            <p id="p3-finish-message">You finished the lesson!</p>
+            <div class="finish-actions">
+                <button type="button" class="secondary-action" onclick="restartP3Lesson()">Try Quiz Again</button>
+                <button type="button" class="big-action" onclick="closeP3Lesson()">Back to P3 Math ⭐</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="math-p3.js"></script>
+</body>
+</html>
